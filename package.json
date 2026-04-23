@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint --fix"
+  },
+  "dependencies": {
+    "@nuxt/a11y": "1.0.0-alpha.1",
+    "@nuxt/content": "^3.13.0",
+    "@nuxt/eslint": "1.15.2",
+    "@nuxt/image": "2.0.0",
+    "@nuxt/ui": "4.6.1",
+    "better-sqlite3": "^12.9.0",
+    "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4"
+  }
+}
