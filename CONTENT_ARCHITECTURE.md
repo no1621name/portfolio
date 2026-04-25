@@ -2,18 +2,20 @@
 
 ## Content Structure
 
-The portfolio uses file-structure based internationalization. Content is organized by locale directories:
+The portfolio uses a hybrid approach for internationalization:
+
+- **Shared data** (skills): Stored directly in `content/` - these are reusable across all locales
+- **Localized content** (experience, projects, about, contacts): Stored in locale directories `content/en/` and `content/ru/`
 
 ```
 content/
-  en/                    # English content
-    skills/
+  skills.json              # Shared across all locales
+  en/                  # English content
     experience/
     projects/
     about.md
     contacts.md
-  ru/                    # Russian content
-    skills/
+  ru/                  # Russian content
     experience/
     projects/
     about.md
@@ -36,7 +38,7 @@ The portfolio uses custom `slug` fields to create one-to-many relationships betw
 - Queries use `where('slug', 'in', array)` to fetch related items
 
 ### Skills Collection
-**Source**: `content/{locale}/skills/**/*.md`
+**Source**: `content/skills.json`
 
 **Fields**:
 - `slug` (string): Unique identifier for referencing (e.g., `react`, `vue`)
@@ -46,15 +48,15 @@ The portfolio uses custom `slug` fields to create one-to-many relationships betw
 - `category` (string): Category for grouping (e.g., "Frontend", "Backend", "Tools")
 - `description` (string, optional): Short description
 
-**Example** (`content/en/skills/react.md`):
-```yaml
----
-slug: react
-name: React
-icon: i-logos-react
-link: https://react.dev
-category: Frontend
----
+**Example** (`content/skills.json`):
+```json
+{
+  "slug": "react",
+  "name": "React",
+  "icon": "i-logos-react",
+  "link": "https://react.dev/",
+  "category": "Frontend",
+}
 ```
 
 ### Experience Collection
@@ -77,6 +79,8 @@ startDate: 2024-12-01
 endDate: 2025-08-01
 jobTitle: Frontend Developer / Lead
 ---
+
+...description
 ```
 
 ### Projects Collection
@@ -101,12 +105,14 @@ stack:
 company: uscode
 link: https://github.com/example/ai-notes
 ---
+
+...description
 ```
 
 **Querying related skills:**
 ```javascript
-// Get skills for a project
-const skills = await queryCollection('skills_en')
+// Get skills for a project (skills are shared across all locales)
+const skills = await queryCollection('skills')
   .where('slug', 'in', project.stack)
   .all()
 ```
@@ -135,8 +141,8 @@ const skills = await queryCollection('skills_en')
 ```javascript
 const project = await queryCollection('projects_en').path('/en/projects/ai-notes').first()
 
-// Get all skills referenced by the project
-const skills = await queryCollection('skills_en')
+// Get all skills referenced by the project (skills are shared across all locales)
+const skills = await queryCollection('skills')
   .where('slug', 'in', project.stack)
   .all()
 ```
@@ -145,7 +151,7 @@ const skills = await queryCollection('skills_en')
 ```javascript
 const project = await queryCollection('projects_en').path('/en/projects/ai-notes').first()
 
-// Get company details if project has a company reference
+// Get company details if project has a company reference (experience is locale-specific)
 if (project.company) {
   const company = await queryCollection('experience_en')
     .where('slug', '=', project.company)
@@ -155,7 +161,7 @@ if (project.company) {
 
 ### Fetching Projects by Company
 ```javascript
-// Get all projects for a specific company
+// Get all projects for a specific company (locale-specific)
 const companyProjects = await queryCollection('projects_en')
   .where('company', '=', 'uscode')
   .all()
@@ -163,7 +169,7 @@ const companyProjects = await queryCollection('projects_en')
 
 ### Fetching Projects by Skill
 ```javascript
-// Get all projects that use a specific skill
+// Get all projects that use a specific skill (locale-specific)
 const skillProjects = await queryCollection('projects_en')
   .where('stack', 'contains', 'vue')
   .all()
@@ -172,7 +178,7 @@ const skillProjects = await queryCollection('projects_en')
 ## Pages Structure
 
 ### `/stack` - Skills Page
-- Fetches skills from `skills` collection in current locale directory
+- Fetches skills from `skills` collection (shared across all locales)
 - Groups skills by category
 - Displays icon, name, and link for each skill
 - Locale determined by URL path (e.g., `/en/stack`, `/ru/stack`)
@@ -236,7 +242,8 @@ const skillProjects = await queryCollection('projects_en')
 ## Internationalization
 
 - Uses Nuxt i18n module with file-structure based locales
-- Content organized in locale directories: `content/en/` and `content/ru/`
+- **Shared data**: Skills stored in `content/skills/` - available across all locales
+- **Localized content**: Experience, projects, about, and contacts stored in locale directories `content/en/` and `content/ru/`
 - Locale parameter in URL (e.g., `/en/stack`, `/ru/stack`)
 - Nuxt Content automatically serves content from the correct locale directory based on current locale
 - Default locale: Russian
