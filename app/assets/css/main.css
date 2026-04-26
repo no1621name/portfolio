@@ -147,10 +147,10 @@ body {
   --ui-text-highlighted: var(--color-green-100);
   --ui-text-inverted: var(--color-neutral-950);
 
-  --ui-primary: var(--color-green-300);
-  --ui-secondary: var(--color-blue-300);
-  --ui-success: var(--color-green-300);
-  --ui-info: var(--color-blue-300);
+  --ui-primary: var(--color-green-400);
+  --ui-secondary: var(--color-blue-400);
+  --ui-success: var(--color-green-500);
+  --ui-info: var(--color-blue-500);
   --ui-warning: var(--color-yellow-400);
   --ui-error: var(--color-red-400);
 
@@ -176,12 +176,12 @@ body {
   --ui-text-highlighted: var(--color-neutral-100);
   --ui-text-inverted: var(--color-neutral-950);
 
-  --ui-primary: var(--color-neutral-50);
+  --ui-primary: var(--color-neutral-100);
   --ui-secondary: var(--color-neutral-400);
   --ui-success: var(--color-neutral-200);
   --ui-info: var(--color-neutral-300);
-  --ui-warning: var(--color-neutral-100);
-  --ui-error: var(--color-neutral-50);
+  --ui-warning: var(--color-neutral-500);
+  --ui-error: var(--color-neutral-600);
 
   --ui-border: var(--color-neutral-700);
   --ui-border-muted: var(--color-neutral-800);
@@ -206,11 +206,11 @@ body {
   --ui-text-inverted: var(--color-neutral-950);
 
   --ui-primary: var(--color-amber-400);
-  --ui-secondary: var(--color-yellow-400);
-  --ui-success: var(--color-amber-400);
-  --ui-info: var(--color-yellow-400);
-  --ui-warning: var(--color-yellow-300);
-  --ui-error: var(--color-orange-400);
+  --ui-secondary: var(--color-yellow-500);
+  --ui-success: var(--color-yellow-200);
+  --ui-info: var(--color-blue-300);
+  --ui-warning: var(--color-amber-300);
+  --ui-error: var(--color-orange-600);
 
   --ui-border: var(--color-amber-900);
   --ui-border-muted: var(--color-amber-950);
