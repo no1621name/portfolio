@@ -30,11 +30,16 @@ pnpm dev          # Start dev server
 pnpm build        # Build for production
 pnpm generate     # Generate static site
 pnpm preview      # Preview production build
-pnpm lint         # Run ESLint with auto-fix
+pnpm lint         # Run ESLint 
+pnpm lint:fix     # Run ESlint with autofix
 ```
 
 ## Architecture
 For architecture details view [architercure doc](ARCHITECTURE.md)
+
+## Design
+For architecture details view [design doc](DESIGN.md)
+
 
 ## Important Notes
 - Use `queryCollection()` API for Nuxt Content v3, not old `queryContent()`
@@ -43,3 +48,4 @@ For architecture details view [architercure doc](ARCHITECTURE.md)
 - ESLint config extends Nuxt's generated config (`.nuxt/eslint.config.mjs`)
 - No test framework or CI/CD configured
 - OpenCode MCP integration with Nuxt UI available via opencode.json
+- For component files use kebab-case
