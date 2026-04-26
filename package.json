@@ -19,6 +19,7 @@
     "@nuxtjs/color-mode": "4.0.0",
     "better-sqlite3": "^12.9.0",
     "nuxt": "^4.4.2",
+    "pixi.js": "^8.18.1",
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
