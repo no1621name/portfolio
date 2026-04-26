@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "lint": "eslint --fix"
+    "lint": "vue-tsc --noEmit && eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/a11y": "1.0.0-alpha.1",
@@ -20,6 +21,8 @@
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
-    "eslint": "^9.39.4"
+    "eslint": "^9.39.4",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.2.7"
   }
 }
