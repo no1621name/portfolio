@@ -1,0 +1,15 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Nuxt 4.4.2, Nuxt Content v3, Nuxt UI v4, Tailwind CSS v4, TypeScript
+  
+  Project: Bilingual (EN/RU) portfolio website with Nuxt Content v3 collections as data source
+  
+  Pages: /stack (skills with icons), /experience (work history), /projects (with multi-select filters), /contacts (Telegram form), /about
+  
+  Key conventions:
+  - Use queryCollection() API for Nuxt Content v3, not queryContent()
+  - Pages collection requires /pages prefix in path queries
+  - Component files use kebab-case naming
+
+  Domain: Personal portfolio showcasing programming skills, work experience, and projects with bilingual support
