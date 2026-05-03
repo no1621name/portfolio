@@ -108,6 +108,7 @@ onMounted(async () => {
     const existingSprites = columns.flatMap(col => col.sprites);
     let spriteIndex = 0;
 
+    const oldColumns = [...columns];
     columns = [];
 
     for (let c = 0; c < numCols; c++) {
@@ -124,7 +125,13 @@ onMounted(async () => {
         }
         sprites.push(sp);
       }
-      columns.push({ sprites, drop: 0, speed: 0, opacity: 0 });
+
+      const oldCol = oldColumns[c];
+      const drop = oldCol ? oldCol.drop : (phase === 'falling' ? -(Math.random() * START_SPREAD + 2) : 0);
+      const speed = oldCol ? oldCol.speed : (phase === 'falling' ? 0.45 + Math.random() * 0.2 : 0);
+      const opacity = oldCol ? oldCol.opacity : 0;
+
+      columns.push({ sprites, drop, speed, opacity });
     }
 
     for (let i = spriteIndex; i < existingSprites.length; i++) {
