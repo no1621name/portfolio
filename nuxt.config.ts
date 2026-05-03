@@ -32,6 +32,14 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    optimizeDeps: {
+      include: [
+        'pixi.js'
+      ]
+    }
+  },
+
   typescript: {
     typeCheck: true
   },
