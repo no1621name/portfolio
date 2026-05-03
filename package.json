@@ -26,6 +26,7 @@
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.105",
     "eslint": "^9.39.4",
     "lefthook": "^2.1.6",
     "typescript": "^6.0.3",
