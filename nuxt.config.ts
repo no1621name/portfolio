@@ -24,6 +24,12 @@ export default defineNuxtConfig({
     preference: 'green'
   },
 
+  content: {
+    renderer: {
+      anchorLinks: false
+    }
+  },
+
   compatibilityDate: '2024-04-03',
 
   nitro: {
