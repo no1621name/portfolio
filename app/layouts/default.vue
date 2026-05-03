@@ -4,14 +4,20 @@
   >
     <header class="border-b border-default bg-default">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="font-heading text-xl">
-          Terminal Portfolio
-        </h1>
-        <ThemeSwitcher />
+        <SiteNavigation
+          :nav-links="[
+            { symbol: '~', path: '', label: 'Homepage' },
+            { symbol: 'whoami', path: '/about', label: 'About' }
+          ]"
+        />
+        <div>
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+        </div>
       </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-8 pb-20 md:pb-8">
       <slot />
     </main>
 
