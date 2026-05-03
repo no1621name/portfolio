@@ -1,18 +1,20 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content';
+import { defineContentConfig, defineCollection } from '@nuxt/content';
 
 export default defineContentConfig({
   collections: {
-    pages: defineCollection({
+    content_en: defineCollection({
       type: 'page',
-      source: 'pages/**/*.md',
-      prefix: '/'
+      source: {
+        include: 'en/**/*.md',
+        prefix: '/en'
+      }
     }),
-    projects: defineCollection({
-      type: 'data',
-      source: 'projects/**/*.md',
-      schema: z.object({
-        name: z.string()
-      })
+    content_ru: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ru/**/*.md',
+        prefix: ''
+      }
     })
   }
 });
