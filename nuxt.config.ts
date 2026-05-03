@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image',
     '@nuxt/ui',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/i18n'
   ],
   devtools: { enabled: true },
 
@@ -25,6 +26,12 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2024-04-03',
 
+  nitro: {
+    prerender: {
+      routes: ['/en', '/']
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {
@@ -33,6 +40,20 @@ export default defineNuxtConfig({
         quotes: 'single',
         semi: true
       }
+    }
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US' },
+      { code: 'ru', name: 'Русский', language: 'ru-RU' }
+    ],
+    defaultLocale: 'ru',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
     }
   }
 });
