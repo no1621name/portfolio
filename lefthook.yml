@@ -1,0 +1,7 @@
+pre-push:
+  parallel: true
+  commands:
+    lint:
+      run: pnpm lint
+    lint-vue:
+      run: pnpm lint:vue
