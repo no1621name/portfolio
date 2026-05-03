@@ -31,6 +31,7 @@ pnpm build        # Build for production
 pnpm generate     # Generate static site
 pnpm preview      # Preview production build
 pnpm lint         # Run ESLint 
+pnpm lint:vue     # Run nuxt typecheck
 pnpm lint:fix     # Run ESlint with autofix
 ```
 
@@ -44,6 +45,7 @@ For architecture details view [design doc](DESIGN.md)
 ## Important Notes
 - Use `queryCollection()` API for Nuxt Content v3, not old `queryContent()`
 - Pages collection requires `/pages` prefix in path queries
+- Do not run `build`, `dev` or `generate` commands if you were not asked. For result validation use `lint` and `lint:vue`
 - Projects fetched in app.vue are available globally
 - ESLint config extends Nuxt's generated config (`.nuxt/eslint.config.mjs`)
 - No test framework or CI/CD configured
