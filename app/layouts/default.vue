@@ -1,9 +1,15 @@
 <script setup lang="ts">
 const navLinks = await useGetNavLinks();
+
+withDefaults(defineProps<{
+  centered?: boolean;
+}>(), {
+  centered: false
+});
 </script>
 
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen flex flex-col">
     <header class="border-b border-default bg-default sticky top-0 z-50">
       <div class="container mx-auto p-2 md:p-4 flex justify-between items-center">
         <SiteNavigation
@@ -16,7 +22,7 @@ const navLinks = await useGetNavLinks();
       </div>
     </header>
 
-    <main class="container mx-auto px-4 py-8 pb-20 md:pb-8">
+    <main class="flex grow container mx-auto px-4 py-8 pb-20 md:pb-8">
       <slot />
     </main>
   </div>

@@ -21,8 +21,10 @@ if (!page.value) {
 </script>
 
 <template>
-  <ContentRenderer
-    v-if="page"
-    :value="page"
-  />
+  <div :class="!!page?.layoutCentered ? 'flex flex-col justify-center grow' : ''">
+    <ContentRenderer
+      v-if="page"
+      :value="page"
+    />
+  </div>
 </template>
