@@ -5,7 +5,8 @@
 
 @theme {
   --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-heading: 'Share Tech Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: 'PT Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --text-xs: 12px;
   --text-sm: 14px;
