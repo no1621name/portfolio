@@ -1,14 +1,13 @@
+<script setup lang="ts">
+const navLinks = await useGetNavLinks();
+</script>
+
 <template>
-  <div
-    class="min-h-screen"
-  >
+  <div class="min-h-screen">
     <header class="border-b border-default bg-default sticky top-0 z-50">
       <div class="container mx-auto p-2 md:p-4 flex justify-between items-center">
         <SiteNavigation
-          :nav-links="[
-            { symbol: '~', path: '', label: 'Homepage' },
-            { symbol: 'whoami', path: '/about', label: 'About' }
-          ]"
+          :nav-links="navLinks"
         />
         <div class="w-full flex justify-between md:w-max">
           <ThemeSwitcher />
