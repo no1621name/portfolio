@@ -26,7 +26,10 @@ export default defineNuxtConfig({
 
   content: {
     renderer: {
-      anchorLinks: false
+      anchorLinks: false,
+      alias: {
+        a: 'NuxtLinkLocale'
+      }
     }
   },
 
