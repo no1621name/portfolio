@@ -43,7 +43,6 @@ const data = ref([
 
 <template>
   <div class="space-y-8">
-    <ULink to="/about">asdf</ULink>
     <section class="space-y-4">
       <h2 class="font-heading text-2xl">
         // welcome
