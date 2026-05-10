@@ -1,4 +1,9 @@
-import { defineContentConfig, defineCollection } from '@nuxt/content';
+import { defineContentConfig, defineCollection, z } from '@nuxt/content';
+
+const pageSchema = z.object({
+  layoutCentered: z.boolean().optional(),
+  terminalMenuLabel: z.string().optional()
+});
 
 export default defineContentConfig({
   collections: {
@@ -7,14 +12,16 @@ export default defineContentConfig({
       source: {
         include: 'en/**/*.md',
         prefix: '/en'
-      }
+      },
+      schema: pageSchema
     }),
     content_ru: defineCollection({
       type: 'page',
       source: {
         include: 'ru/**/*.md',
         prefix: ''
-      }
+      },
+      schema: pageSchema
     })
   }
 });

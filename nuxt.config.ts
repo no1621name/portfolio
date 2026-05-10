@@ -24,6 +24,15 @@ export default defineNuxtConfig({
     preference: 'green'
   },
 
+  content: {
+    renderer: {
+      anchorLinks: false,
+      alias: {
+        a: 'NuxtLinkLocale'
+      }
+    }
+  },
+
   compatibilityDate: '2024-04-03',
 
   nitro: {

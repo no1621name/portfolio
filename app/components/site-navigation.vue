@@ -1,12 +1,8 @@
 <script setup lang="ts">
+import type { NavLink } from '~/types/navigation';
+
 const route = useRoute();
 const localePath = useLocalePath();
-
-interface NavLink {
-  symbol: string;
-  path: string;
-  label: string;
-}
 
 defineProps<{
   navLinks: NavLink[];
