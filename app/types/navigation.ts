@@ -3,3 +3,8 @@ export interface NavLink {
   path: string;
   label: string;
 }
+
+export interface TerminalMenuItem {
+  label: string;
+  path: string;
+}
