@@ -8,6 +8,8 @@ withDefaults(defineProps<{
   status: 'active search',
   location: 'Earth'
 });
+
+const terminalLinks = await useGetTerminalMenuLinks();
 </script>
 
 <template>
@@ -64,6 +66,7 @@ withDefaults(defineProps<{
                 </p>
               </div>
             </div>
+            <TerminalMenu :items="terminalLinks" />
           </div>
         </div>
       </div>
