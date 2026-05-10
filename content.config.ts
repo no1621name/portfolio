@@ -1,7 +1,8 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content';
 
 const pageSchema = z.object({
-  layoutCentered: z.boolean().optional()
+  layoutCentered: z.boolean().optional(),
+  terminalMenuLabel: z.string().optional()
 });
 
 export default defineContentConfig({
