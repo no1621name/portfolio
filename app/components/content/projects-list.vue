@@ -5,9 +5,30 @@ import { useProjectsData } from '~/composables/projects/use-projects-data';
 import { useProjectOptions } from '~/composables/projects/use-project-options';
 import { matchesSearch, matchesStack, matchesCompany } from '~/utils/project-filters';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
-const { projects, experiences, skills, uniqueCompanySlugs, uniqueStackSlugs } = useProjectsData();
+const projectsCollectionKey = useGetProjectsCollectionKey();
+const experienceCollectionKey = useGetExperienceCollectionKey();
+
+const { data: projects } = await useAsyncData(
+  `projects-${projectsCollectionKey.value}`,
+  () => queryCollection(projectsCollectionKey.value).all(),
+  { watch: [locale] }
+);
+
+const { data: skillsData } = await useAsyncData(
+  'skills-data',
+  () => queryCollection('skills').first(),
+  { watch: [locale] }
+);
+
+const { data: experiences } = await useAsyncData(
+  `experience-${experienceCollectionKey.value}`,
+  () => queryCollection(experienceCollectionKey.value).all(),
+  { watch: [locale] }
+);
+
+const { skills, uniqueCompanySlugs, uniqueStackSlugs } = useProjectsData(projects, skillsData);
 const { searchQuery, selectedStack, selectedCompanies } = useProjectFilters();
 const { companyOptions, stackOptions } = useProjectOptions(experiences, skills, uniqueCompanySlugs, uniqueStackSlugs);
 
@@ -88,7 +109,7 @@ const filteredProjects = computed(() =>
       </template>
 
       <template v-else>
-        <ProjectCard
+        <UiProjectCard
           v-for="project in filteredProjects"
           :key="project.path"
           :project="project"
