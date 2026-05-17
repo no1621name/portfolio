@@ -246,7 +246,6 @@ body {
   );
 }
 
-
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s ease;
@@ -254,5 +253,15 @@ body {
 
 .page-enter-from,
 .page-leave-to {
+  opacity: 0;
+}
+
+.instant-enter-active,
+.instant-leave-active {
+  transition: opacity 0.01s ease;
+}
+
+.instant-enter-from,
+.instant-leave-to {
   opacity: 0;
 }

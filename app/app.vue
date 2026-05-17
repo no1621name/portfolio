@@ -4,6 +4,13 @@ import type { MatrixIntsance } from './plugins/matrix-transition.client';
 const matrixRef = useTemplateRef<MatrixIntsance>('matrixRef');
 const { $matrix } = useNuxtApp();
 onMounted(() => $matrix(matrixRef.value));
+
+const skipPageTransition = useSkipPageTransition();
+const transitionOptions = computed(() => {
+  return skipPageTransition.value
+    ? 'none'
+    : 'page';
+});
 </script>
 
 <template>
@@ -11,7 +18,7 @@ onMounted(() => $matrix(matrixRef.value));
     <NuxtRouteAnnouncer />
     <UiMatrixTransition ref="matrixRef" />
     <NuxtLayout>
-      <NuxtPage />
+      <NuxtPage :transition="{ name: transitionOptions }" />
     </NuxtLayout>
   </UApp>
 </template>
