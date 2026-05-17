@@ -26,6 +26,13 @@ const experienceSchema = z.object({
   jobTitle: z.string()
 });
 
+const projectSchema = z.object({
+  name: z.string(),
+  stack: z.array(z.string()),
+  company: z.string().optional(),
+  link: z.string().optional()
+});
+
 export default defineContentConfig({
   collections: {
     pages_en: defineCollection({
@@ -64,6 +71,20 @@ export default defineContentConfig({
         // prefix: ''
       },
       schema: experienceSchema
+    }),
+    projects_en: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/projects/**/*.md'
+      },
+      schema: projectSchema
+    }),
+    projects_ru: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ru/projects/**/*.md'
+      },
+      schema: projectSchema
     })
   }
 });
