@@ -1,4 +1,4 @@
-import type { RunMatrix } from '~/components/matrix-transition.vue';
+import type { RunMatrix } from '~/components/ui/matrix-transition.vue';
 
 export interface MatrixIntsance {
   run: RunMatrix;

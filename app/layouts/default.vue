@@ -12,12 +12,12 @@ withDefaults(defineProps<{
   <div class="min-h-screen flex flex-col">
     <header class="border-b border-default bg-default sticky top-0 z-50">
       <div class="container mx-auto p-2 md:p-4 flex justify-between items-center">
-        <SiteNavigation
+        <LayoutSiteNavigation
           :nav-links="navLinks"
         />
         <div class="w-full flex justify-between md:w-max">
-          <ThemeSwitcher />
-          <LanguageSwitcher />
+          <LayoutThemeSwitcher />
+          <LayoutLanguageSwitcher />
         </div>
       </div>
     </header>

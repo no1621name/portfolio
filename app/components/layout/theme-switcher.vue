@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n();
 const colorMode = useColorMode();
 
 const themes = ref([
@@ -13,6 +14,7 @@ const activeThemeIcon = computed(() => themes.value.find(theme => theme.value ==
 <template>
   <USelect
     v-model="colorMode.preference"
+    :aria-label="t('themeSwitcher')"
     :items="themes"
     :icon="activeThemeIcon"
     size="sm"
