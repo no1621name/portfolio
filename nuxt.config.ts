@@ -77,5 +77,16 @@ export default defineNuxtConfig({
       redirectOn: 'root',
       alwaysRedirect: false
     }
+  },
+
+  icon: {
+    customCollections: [{
+      prefix: 'custom',
+      dir: './app/assets/icons'
+    }],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true
+    }
   }
 });
