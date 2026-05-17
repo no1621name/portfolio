@@ -20,6 +20,8 @@
     "@nuxt/ui": "4.6.1",
     "@nuxtjs/color-mode": "4.0.0",
     "@nuxtjs/i18n": "^10.3.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "better-sqlite3": "^12.9.0",
     "nuxt": "^4.4.2",
     "pixi.js": "^8.18.1",
