@@ -1,212 +1,226 @@
-[
-  {
-    "slug": "react",
-    "name": "React",
-    "icon": "i-logos-react",
-    "link": "https://react.dev/",
-    "category": "frontend"
-  },
-  {
-    "slug": "react-router",
-    "name": "React Router",
-    "icon": "i-logos-react-router",
-    "link": "https://reactrouter.com/",
-    "category": "frontend"
-  },
-   {
-    "slug": "nuxt",
-    "name": "Nuxt",
-    "icon": "i-logos-nuxt-icon",
-    "link": "https://nuxt.com/",
-    "category": "frontend"
-  },
-  {
-    "slug": "nextjs",
-    "name": "Next.js",
-    "icon": "i-logos-nextjs-icon",
-    "link": "https://nextjs.org/",
-    "category": "frontend"
-  },
-  {
-    "slug": "zustand",
-    "name": "Zustand",
-    "icon": "custom:zustand",
-    "link": "https://zustand-demo.pmnd.rs/",
-    "category": "frontend"
-  },
-  {
-    "slug": "react-hook-form",
-    "name": "React Hook Form",
-    "icon": "custom:react-hook-form",
-    "link": "https://react-hook-form.com/",
-    "category": "frontend"
-  },
-  {
-    "slug": "vue",
-    "name": "Vue 3",
-    "icon": "i-logos-vue",
-    "link": "https://vuejs.org/",
-    "category": "frontend"
-  },
-  {
-    "slug": "pinia",
-    "name": "Pinia",
-    "icon": "i-logos-pinia",
-    "link": "https://pinia.vuejs.org/",
-    "category": "frontend"
-  },
-  {
-    "slug": "vue-i18n",
-    "name": "Vue I18n",
-    "icon": "custom:vue-i18n",
-    "link": "https://vue-i18n.intlify.dev/",
-    "category": "frontend"
-  },
-  {
-    "slug": "regexle",
-    "name": "Regele.js",
-    "icon": "custom:reglejs",
-    "link": "https://reglejs.dev/",
-    "category": "frontend"
-  },
-  {
-    "slug": "tanstack-query",
-    "name": "TanStack Query",
-    "icon": "i-logos-react-query-icon",
-    "link": "https://tanstack.com/query/",
-    "category": "frontend"
-  },
-  {
-    "slug": "tailwindcss",
-    "name": "Tailwind CSS",
-    "icon": "i-logos-tailwindcss-icon",
-    "link": "https://tailwindcss.com/",
-    "category": "frontend"
-  },
-  {
-    "slug": "css-modules",
-    "name": "CSS Modules",
-    "icon": "i-logos-css-3",
-    "link": "https://github.com/css-modules/css-modules",
-    "category": "frontend"
-  },
-  {
-    "slug": "tiptap",
-    "name": "TipTap",
-    "icon": "custom:tiptap",
-    "link": "https://tiptap.dev/",
-    "category": "frontend"
-  },
-  {
-    "slug": "monaco-editor",
-    "name": "Monaco Editor",
-    "icon": "custom:monaco-editor",
-    "link": "https://microsoft.github.io/monaco-editor/",
-    "category": "frontend"
-  },
-  {
-    "slug": "xterm",
-    "name": "Xterm.js",
-    "icon": "i-logos-terminal",
-    "link": "https://xtermjs.org/",
-    "category": "frontend"
-  },
-  {
-    "slug": "pinia-colada",
-    "name": "Pinia Colada",
-    "icon": "custom:pinia-colada",
-    "link": "https://github.com/享受到/pinia-colada",
-    "category": "frontend"
-  },
-  {
-    "slug": "typescript",
-    "name": "TypeScript",
-    "icon": "i-logos-typescript-icon",
-    "link": "https://www.typescriptlang.org/",
-    "category": "frontend"
-  },
-  {
-    "slug": "php",
-    "name": "PHP",
-    "icon": "i-logos-php",
-    "link": "https://www.php.net/",
-    "category": "backend"
-  },
-  {
-    "slug": "laravel",
-    "name": "Laravel",
-    "icon": "i-logos-laravel",
-    "link": "https://laravel.com/",
-    "category": "backend"
-  },
-  {
-    "slug": "wordpress",
-    "name": "WordPress",
-    "icon": "i-logos-wordpress-icon",
-    "link": "https://wordpress.org/",
-    "category": "backend"
-  },
-  {
-    "slug": "django",
-    "name": "Django",
-    "icon": "i-logos-django",
-    "link": "https://www.djangoproject.com/",
-    "category": "backend"
-  },
-  {
-    "slug": "python",
-    "name": "Python",
-    "icon": "i-logos-python",
-    "link": "https://www.python.org/",
-    "category": "backend"
-  },
-  {
-    "slug": "supabase",
-    "name": "Supabase",
-    "icon": "i-logos-supabase-icon",
-    "link": "https://supabase.com/",
-    "category": "backend"
-  },
-  {
-    "slug": "vite",
-    "name": "Vite",
-    "icon": "i-logos-vitejs",
-    "link": "https://vitejs.dev/",
-    "category": "deployment"
-  },
-  {
-    "slug": "vitest",
-    "name": "Vitest",
-    "icon": "i-logos-vitest",
-    "link": "https://vitest.dev/",
-    "category": "deployment"
-  },
-  {
-    "slug": "zod",
-    "name": "Zod",
-    "icon": "i-logos-zod",
-    "link": "https://zod.dev/",
-    "category": "deployment"
-  },
-  {
-    "slug": "arktype",
-    "name": "Arktype",
-    "icon": "custom:arktype",
-    "link": "https://arktype.io/",
-    "category": "deployment"
-  },
-  {
-    "slug": "cicd",
-    "name": "CI/CD",
-    "icon": "i-logos-github-actions",
-    "link": "https://docs.github.com/en/actions",
-    "category": "deployment"
-  },
-  {
-    "slug": "docker",
-    "name": "Docker",
-    "icon": "i-logos-docker",
-    "link": "https://www.docker.com/",
-    "category": "deployment"
-  }
-]
+{
+  "items": [
+    {
+      "slug": "react",
+      "name": "React",
+      "icon": "i-logos-react",
+      "link": "https://react.dev/",
+      "category": "frontend",
+      "order": 4
+    },
+    {
+      "slug": "react-router",
+      "name": "React Router",
+      "icon": "i-logos-react-router",
+      "link": "https://reactrouter.com/",
+      "category": "frontend"
+    },
+    {
+      "slug": "nuxt",
+      "name": "Nuxt",
+      "icon": "i-logos-nuxt-icon",
+      "link": "https://nuxt.com/",
+      "category": "frontend",
+      "order": 2
+    },
+    {
+      "slug": "nextjs",
+      "name": "Next.js",
+      "icon": "i-logos-nextjs-icon",
+      "link": "https://nextjs.org/",
+      "category": "frontend",
+      "order": 5
+    },
+    {
+      "slug": "zustand",
+      "name": "Zustand",
+      "icon": "custom:zustand",
+      "link": "https://zustand-demo.pmnd.rs/",
+      "category": "frontend"
+    },
+    {
+      "slug": "react-hook-form",
+      "name": "React Hook Form",
+      "icon": "custom:react-hook-form",
+      "link": "https://react-hook-form.com/",
+      "category": "frontend"
+    },
+    {
+      "slug": "vue",
+      "name": "Vue 3",
+      "icon": "i-logos-vue",
+      "link": "https://vuejs.org/",
+      "category": "frontend",
+      "order": 1
+    },
+    {
+      "slug": "pinia",
+      "name": "Pinia",
+      "icon": "i-logos-pinia",
+      "link": "https://pinia.vuejs.org/",
+      "category": "frontend"
+    },
+    {
+      "slug": "vue-i18n",
+      "name": "Vue I18n",
+      "icon": "custom:vue-i18n",
+      "link": "https://vue-i18n.intlify.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "regexle",
+      "name": "Regele.js",
+      "icon": "custom:reglejs",
+      "link": "https://reglejs.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "tanstack-query",
+      "name": "TanStack Query",
+      "icon": "i-logos-react-query-icon",
+      "link": "https://tanstack.com/query/",
+      "category": "frontend"
+    },
+    {
+      "slug": "tailwindcss",
+      "name": "Tailwind CSS",
+      "icon": "i-logos-tailwindcss-icon",
+      "link": "https://tailwindcss.com/",
+      "category": "frontend"
+    },
+    {
+      "slug": "css-modules",
+      "name": "CSS Modules",
+      "icon": "i-logos-css-3",
+      "link": "https://github.com/css-modules/css-modules",
+      "category": "frontend"
+    },
+    {
+      "slug": "tiptap",
+      "name": "TipTap",
+      "icon": "custom:tiptap",
+      "link": "https://tiptap.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "monaco-editor",
+      "name": "Monaco Editor",
+      "icon": "custom:monaco-editor",
+      "link": "https://microsoft.github.io/monaco-editor/",
+      "category": "frontend"
+    },
+    {
+      "slug": "xterm",
+      "name": "Xterm.js",
+      "icon": "i-logos-terminal",
+      "link": "https://xtermjs.org/",
+      "category": "frontend"
+    },
+    {
+      "slug": "pinia-colada",
+      "name": "Pinia Colada",
+      "icon": "custom:pinia-colada",
+      "link": "https://pinia-colada.esm.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "typescript",
+      "name": "TypeScript",
+      "icon": "i-logos-typescript-icon",
+      "link": "https://www.typescriptlang.org/",
+      "category": "frontend",
+      "order": 3
+    },
+    {
+      "slug": "php",
+      "name": "PHP",
+      "icon": "i-logos-php",
+      "link": "https://www.php.net/",
+      "category": "backend",
+      "order": 2
+    },
+    {
+      "slug": "laravel",
+      "name": "Laravel",
+      "icon": "i-logos-laravel",
+      "link": "https://laravel.com/",
+      "category": "backend",
+      "order": 3
+    },
+    {
+      "slug": "wordpress",
+      "name": "WordPress",
+      "icon": "i-logos-wordpress-icon",
+      "link": "https://wordpress.org/",
+      "category": "backend",
+      "order": 2
+    },
+    {
+      "slug": "django",
+      "name": "Django",
+      "icon": "i-logos-django",
+      "link": "https://www.djangoproject.com/",
+      "category": "backend"
+    },
+    {
+      "slug": "python",
+      "name": "Python",
+      "icon": "i-logos-python",
+      "link": "https://www.python.org/",
+      "category": "backend",
+      "order": 4
+    },
+    {
+      "slug": "supabase",
+      "name": "Supabase",
+      "icon": "i-logos-supabase-icon",
+      "link": "https://supabase.com/",
+      "category": "backend"
+    },
+    {
+      "slug": "vite",
+      "name": "Vite",
+      "icon": "i-logos-vitejs",
+      "link": "https://vitejs.dev/",
+      "category": "frontend",
+      "order": 6
+    },
+    {
+      "slug": "vitest",
+      "name": "Vitest",
+      "icon": "i-logos-vitest",
+      "link": "https://vitest.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "zod",
+      "name": "Zod",
+      "icon": "i-logos-zod",
+      "link": "https://zod.dev/",
+      "category": "frontend"
+    },
+    {
+      "slug": "arktype",
+      "name": "Arktype",
+      "icon": "custom:arktype",
+      "link": "https://arktype.io/",
+      "category": "frontend"
+    },
+    {
+      "slug": "github-actions",
+      "name": "Github Actions",
+      "icon": "i-logos-github-actions",
+      "link": "https://docs.github.com/en/actions",
+      "category": "deployment",
+      "order": 2
+    },
+    {
+      "slug": "docker",
+      "name": "Docker",
+      "icon": "i-logos-docker-icon",
+      "link": "https://www.docker.com/",
+      "category": "deployment",
+      "order": 1
+    }
+  ]
+}

@@ -6,11 +6,16 @@ const pageSchema = z.object({
 });
 
 const skillSchema = z.object({
-  slug: z.string(),
-  name: z.string(),
-  icon: z.string(),
-  link: z.string(),
-  category: z.string()
+  items: z.array(
+    z.object({
+      slug: z.string(),
+      name: z.string(),
+      icon: z.string(),
+      link: z.string(),
+      category: z.string(),
+      order: z.number().optional()
+    })
+  )
 });
 
 export default defineContentConfig({
