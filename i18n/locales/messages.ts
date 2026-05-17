@@ -1,6 +1,10 @@
 const messages = {
-  en: {},
-  ru: {}
+  en: {
+    themeSwitcher: 'Theme switcher'
+  },
+  ru: {
+    themeSwitcher: 'Смена темы'
+  }
 };
 
 export default messages;
