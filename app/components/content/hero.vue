@@ -35,7 +35,7 @@ const terminalLinks = await useGetTerminalMenuLinks();
       <div class="relative">
         <div class="scanlines absolute inset-0 pointer-events-none" />
         <div class="p-4 md:p-6 flex flex-col gap-4 font-mono text-sm overflow-auto">
-          <div class="w-max">
+          <div class="w-full">
             <div class="flex gap-8 items-start">
               <pre class="text-primary leading-none font-bold select-none">
   ____
@@ -68,7 +68,7 @@ const terminalLinks = await useGetTerminalMenuLinks();
                 </p>
               </div>
             </div>
-            <TerminalMenu :items="terminalLinks" />
+            <UiTerminalMenu :items="terminalLinks" />
           </div>
         </div>
       </div>

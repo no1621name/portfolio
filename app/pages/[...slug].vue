@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Collections } from '@nuxt/content';
+import type { PageCollections } from '@nuxt/content';
 
 const route = useRoute();
 const { locale, defaultLocale } = useI18n();
 
 const slug = computed(() => Array.isArray(route.params.slug) ? route.params.slug as string[] : [route.params.slug as string]);
-const collection = computed(() => `content_${locale.value}` as keyof Collections);
+const collection = computed(() => `content_${locale.value}` as keyof PageCollections);
 const path = computed(() => {
   const localePrefix = locale.value === defaultLocale ? '' : `/${locale.value}`;
 
@@ -21,7 +21,7 @@ if (!page.value) {
 </script>
 
 <template>
-  <div :class="!!page?.layoutCentered ? 'flex flex-col justify-center grow' : ''">
+  <div :class="!!page?.layoutCentered ? 'flex flex-col justify-center grow' : 'w-full'">
     <ContentRenderer
       v-if="page"
       :value="page"

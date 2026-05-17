@@ -5,6 +5,19 @@ const pageSchema = z.object({
   terminalMenuLabel: z.string().optional()
 });
 
+const skillSchema = z.object({
+  items: z.array(
+    z.object({
+      slug: z.string(),
+      name: z.string(),
+      icon: z.string(),
+      link: z.string(),
+      category: z.string(),
+      order: z.number().optional()
+    })
+  )
+});
+
 export default defineContentConfig({
   collections: {
     content_en: defineCollection({
@@ -22,6 +35,11 @@ export default defineContentConfig({
         prefix: ''
       },
       schema: pageSchema
+    }),
+    skills: defineCollection({
+      type: 'data',
+      source: 'skills.json',
+      schema: skillSchema
     })
   }
 });

@@ -9,7 +9,7 @@ onMounted(() => $matrix(matrixRef.value));
 <template>
   <UApp>
     <NuxtRouteAnnouncer />
-    <MatrixTransition ref="matrixRef" />
+    <UiMatrixTransition ref="matrixRef" />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

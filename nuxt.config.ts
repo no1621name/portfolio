@@ -71,11 +71,17 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'ru',
     strategy: 'prefix_except_default',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-      alwaysRedirect: false
+    detectBrowserLanguage: false
+  },
+
+  icon: {
+    customCollections: [{
+      prefix: 'custom',
+      dir: './app/assets/icons'
+    }],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true
     }
   }
 });
