@@ -18,20 +18,28 @@ const skillSchema = z.object({
   )
 });
 
+const experienceSchema = z.object({
+  slug: z.string(),
+  company: z.string(),
+  startDate: z.date(),
+  endDate: z.date().optional(),
+  jobTitle: z.string()
+});
+
 export default defineContentConfig({
   collections: {
-    content_en: defineCollection({
+    pages_en: defineCollection({
       type: 'page',
       source: {
-        include: 'en/**/*.md',
+        include: 'en/pages/**/*.md',
         prefix: '/en'
       },
       schema: pageSchema
     }),
-    content_ru: defineCollection({
+    pages_ru: defineCollection({
       type: 'page',
       source: {
-        include: 'ru/**/*.md',
+        include: 'ru/pages/**/*.md',
         prefix: ''
       },
       schema: pageSchema
@@ -40,6 +48,22 @@ export default defineContentConfig({
       type: 'data',
       source: 'skills.json',
       schema: skillSchema
+    }),
+    experience_en: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en/experience/**/*.md'
+        // prefix: '/en'
+      },
+      schema: experienceSchema
+    }),
+    experience_ru: defineCollection({
+      type: 'page',
+      source: {
+        include: 'ru/experience/**/*.md'
+        // prefix: ''
+      },
+      schema: experienceSchema
     })
   }
 });

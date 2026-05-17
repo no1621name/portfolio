@@ -7,10 +7,20 @@ export interface MatrixIntsance {
 export default defineNuxtPlugin({
   name: 'matrix-transition',
   setup() {
+    const skipPageTransition = useSkipPageTransition();
+    const { afterEach, beforeEach } = useRouter();
     const matrixRef = shallowRef<MatrixIntsance | null>(null);
 
-    useRouter().afterEach(() => {
-      matrixRef.value?.run();
+    beforeEach((to, from) => {
+      const isLangSwitch = to.params.slug?.[0] === from.params.slug?.[0];
+      skipPageTransition.value = isLangSwitch;
+    });
+
+    afterEach((to, from) => {
+      const isLangSwitch = to.params.slug?.[0] === from.params.slug?.[0];
+      if (!isLangSwitch) {
+        matrixRef.value?.run();
+      }
     });
 
     return {

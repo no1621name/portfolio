@@ -1,9 +1,10 @@
 import type { NavLink, TerminalMenuItem } from '~/types/navigation';
+import { useGetPageCollectionKey } from './use-get-collection-keys';
 
 export const useGetNavLinks = async (): Promise<NavLink[]> => {
-  const { locale } = useI18n();
+  const key = useGetPageCollectionKey();
   const { data } = await useAsyncData('nav-links', () =>
-    queryCollection(`content_${locale.value}`)
+    queryCollection(key.value)
       .select('title', 'navigation', 'path')
       .all()
   );
@@ -12,16 +13,15 @@ export const useGetNavLinks = async (): Promise<NavLink[]> => {
 
   return data.value.map(item => ({
     symbol: typeof item.navigation === 'object' ? item.navigation.icon : '',
-    path: item.path.split('/pages')[1] ?? '/',
+    path: item.path ?? '/',
     label: item.title
   }));
 };
 
 export const useGetTerminalMenuLinks = async (): Promise<TerminalMenuItem[]> => {
-  const { locale } = useI18n();
-
+  const key = useGetPageCollectionKey();
   const { data } = await useAsyncData('terminal-menu-links', () =>
-    queryCollection(`content_${locale.value}`)
+    queryCollection(key.value)
       .select('title', 'terminalMenuLabel', 'path')
       .all()
   );
@@ -32,6 +32,6 @@ export const useGetTerminalMenuLinks = async (): Promise<TerminalMenuItem[]> => 
     ? null
     : ({
         label: item.terminalMenuLabel,
-        path: item.path.split('/pages')[1] ?? '/'
+        path: item.path ?? '/'
       })).filter(Boolean) as TerminalMenuItem[];
 };
