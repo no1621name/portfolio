@@ -15,7 +15,7 @@ const terminalLinks = await useGetTerminalMenuLinks();
 <template>
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center content-center w-full">
     <div class="flex flex-col h-auto gap-6">
-      <div class="font-heading text-3xl lg:text-4xl text-primary">
+      <div class="font-heading text-3xl lg:text-4xl text-primary *:leading-none">
         <slot name="title" />
       </div>
       <div class="text-muted text-base lg:text-md max-w-xl *:my-0">

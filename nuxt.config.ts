@@ -1,6 +1,7 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
+    '@vercel/speed-insights',
+    '@vercel/analytics',
     '@nuxt/a11y',
     '@nuxt/eslint',
     '@nuxtjs/color-mode',
