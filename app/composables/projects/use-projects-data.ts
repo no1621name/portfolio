@@ -1,28 +1,7 @@
+import type { SkillsCollectionItem } from '@nuxt/content';
 import type { ProjectCollectionItem, SkillItem } from '~/types/content';
 
-export function useProjectsData() {
-  const { locale } = useI18n();
-  const projectsCollectionKey = useGetProjectsCollectionKey();
-  const experienceCollectionKey = useGetExperienceCollectionKey();
-
-  const { data: projects } = useAsyncData(
-    `projects-${projectsCollectionKey.value}`,
-    () => queryCollection(projectsCollectionKey.value).all(),
-    { watch: [locale] }
-  );
-
-  const { data: skillsData } = useAsyncData(
-    'skills-data',
-    () => queryCollection('skills').first(),
-    { watch: [locale] }
-  );
-
-  const { data: experiences } = useAsyncData(
-    `experience-${experienceCollectionKey.value}`,
-    () => queryCollection(experienceCollectionKey.value).all(),
-    { watch: [locale] }
-  );
-
+export function useProjectsData(projects: Ref<ProjectCollectionItem[] | undefined>, skillsData: Ref<SkillsCollectionItem | null | undefined>) {
   const skills = computed<SkillItem[]>(() => skillsData.value?.items ?? []);
 
   const uniqueCompanySlugs = computed(() =>
@@ -33,5 +12,5 @@ export function useProjectsData() {
     [...new Set(projects.value?.flatMap(p => p.stack) ?? [])]
   );
 
-  return { projects, experiences, skills, uniqueCompanySlugs, uniqueStackSlugs };
+  return { projects, skills, uniqueCompanySlugs, uniqueStackSlugs };
 }
