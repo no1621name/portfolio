@@ -7,6 +7,13 @@ const messages = {
       month: 'mo',
       seeMore: 'see more',
       seeLess: 'see less'
+    },
+    projects: {
+      searchPlaceholder: 'Search projects...',
+      technologiesPlaceholder: 'Technologies',
+      companiesPlaceholder: 'Companies',
+      loading: 'Loading projects...',
+      noResults: 'No projects found'
     }
   },
   ru: {
@@ -17,6 +24,13 @@ const messages = {
       month: 'мес.',
       seeMore: 'смотреть больше',
       seeLess: 'свернуть'
+    },
+    projects: {
+      searchPlaceholder: 'Поиск проектов...',
+      technologiesPlaceholder: 'Технологии',
+      companiesPlaceholder: 'Компании',
+      loading: 'Загрузка проектов...',
+      noResults: 'Проекты не найдены'
     }
   }
 };
