@@ -14,6 +14,12 @@ const messages = {
       companiesPlaceholder: 'Companies',
       loading: 'Loading projects...',
       noResults: 'No projects found'
+    },
+    projectDetail: {
+      technologies: 'Technologies',
+      company: 'Company',
+      link: 'Link',
+      viewProject: 'View project'
     }
   },
   ru: {
@@ -31,6 +37,12 @@ const messages = {
       companiesPlaceholder: 'Компании',
       loading: 'Загрузка проектов...',
       noResults: 'Проекты не найдены'
+    },
+    projectDetail: {
+      technologies: 'Технологии',
+      company: 'Компания',
+      link: 'Ссылка',
+      viewProject: 'Перейти к проекту'
     }
   }
 };
