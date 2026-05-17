@@ -10,10 +10,14 @@ const props = defineProps<{
 
 const skills = computed(() => props.project.stack.map(slug => props.skillMap.get(slug)).filter((s): s is SkillItem => !!s));
 const company = computed(() => props.project.company ? props.companyMap.get(props.project.company) : undefined);
+const path = computed(() => {
+  return '/' + props.project.stem.split('/').slice(1).join('/');
+});
 </script>
 
 <template>
   <NuxtLinkLocale
+    :to="path"
     class="group block p-4 border border-divider rounded-lg hover:border-primary/50 transition-colors"
   >
     <div class="flex flex-col gap-2">
