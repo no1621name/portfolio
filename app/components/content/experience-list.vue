@@ -66,7 +66,7 @@ function calculateDuration(startDate: Date | string, endDate?: Date | string): s
         </div>
       </div>
 
-      <div class="pt-4 pb-2 text-sm text-primary/80 prose prose-mono prose-invert max-w-none">
+      <div class="py-2 text-sm text-primary/80 prose prose-mono prose-invert max-w-none">
         <ContentRenderer :value="entry" />
       </div>
     </div>
