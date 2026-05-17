@@ -2,22 +2,20 @@
 import type { SkillItem, ExperienceCollectionItem } from '~/types/content';
 
 const route = useRoute();
-const { locale, defaultLocale } = useI18n();
+const { locale } = useI18n();
 
 const slug = computed(() => route.params.slug as string);
-const path = computed(() => {
-  const localePrefix = locale.value === defaultLocale ? '' : `/${locale.value}`;
-  return `${localePrefix}/projects/${slug.value}`;
-});
+const path = computed(() => `/${locale.value}/projects/${slug.value}`);
 
 const projectsCollectionKey = useGetProjectsCollectionKey();
 const experienceCollectionKey = useGetExperienceCollectionKey();
 
 const { data: project } = await useAsyncData(
   `project-${path.value}`,
-  () => queryCollection(projectsCollectionKey.value).first(),
-  { watch: [locale] }
+  () => queryCollection(projectsCollectionKey.value).path(path.value).first()
 );
+
+console.log(path.value);
 
 const projectStack = computed(() => project.value?.stack ?? []);
 const projectCompany = computed(() => project.value?.company);
@@ -64,7 +62,7 @@ if (!project.value) {
 
     <div class="lg:col-span-1">
       <UiProjectSidebar
-        :company="company ?? null"
+        :company="company"
         :skills="skills"
         :project="project"
       />

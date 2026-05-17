@@ -10,9 +10,7 @@ const props = defineProps<{
 
 const skills = computed(() => props.project.stack.map(slug => props.skillMap.get(slug)).filter((s): s is SkillItem => !!s));
 const company = computed(() => props.project.company ? props.companyMap.get(props.project.company) : undefined);
-const path = computed(() => {
-  return '/' + props.project.stem.split('/').slice(1).join('/');
-});
+const path = computed(() => '/' + props.project.stem.split('/').slice(1).join('/'));
 </script>
 
 <template>

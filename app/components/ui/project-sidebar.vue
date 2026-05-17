@@ -4,7 +4,7 @@ import type { SkillItem, ExperienceCollectionItem, ProjectCollectionItem } from 
 const props = defineProps<{
   project: ProjectCollectionItem;
   skills: SkillItem[];
-  company: ExperienceCollectionItem | null;
+  company?: ExperienceCollectionItem | null;
 }>();
 
 const { t } = useI18n();
