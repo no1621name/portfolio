@@ -9,7 +9,14 @@ defineProps<{
 }>();
 
 const isActive = (path: string) => {
-  return route.path === localePath(path);
+  const localizedPath = localePath(path);
+  const localizedRoot = localePath('/');
+
+  if (localizedPath === localizedRoot) {
+    return route.path === localizedPath;
+  }
+
+  return route.path === localizedPath || route.path.startsWith(`${localizedPath}/`);
 };
 </script>
 
