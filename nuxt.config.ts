@@ -38,8 +38,8 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true },
-    '/en': { prerender: true },
+    '/**': { prerender: true },
+    '/en/**': { prerender: true },
     '/projects': { prerender: false, ssr: true },
     '/en/projects': { prerender: false, ssr: true }
   },
