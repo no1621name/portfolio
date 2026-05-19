@@ -1,3 +1,6 @@
+import { readdirSync } from 'fs';
+import { resolve } from 'path';
+
 export default defineNuxtConfig({
   modules: [
     '@vercel/speed-insights',
@@ -34,13 +37,14 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2024-04-03',
-
-  nitro: {
-    prerender: {
-      routes: ['/en', '/']
-    }
+  routeRules: {
+    '/': { prerender: true },
+    '/en': { prerender: true },
+    '/projects': { prerender: false, ssr: true },
+    '/en/projects': { prerender: false, ssr: true }
   },
+
+  compatibilityDate: '2024-04-03',
 
   vite: {
     optimizeDeps: {
@@ -52,6 +56,24 @@ export default defineNuxtConfig({
 
   typescript: {
     typeCheck: true
+  },
+
+  hooks: {
+    'nitro:config'(nitroConfig) {
+      const contentDir = resolve('./content');
+
+      const enProjects = readdirSync(`${contentDir}/en/projects`)
+        .filter(f => f.endsWith('.md'))
+        .map(f => `/en/projects/${f.replace(/\.md$/, '')}`);
+
+      const ruProjects = readdirSync(`${contentDir}/ru/projects`)
+        .filter(f => f.endsWith('.md'))
+        .map(f => `/projects/${f.replace(/\.md$/, '')}`);
+
+      nitroConfig.prerender ??= {};
+      nitroConfig.prerender.routes ??= [];
+      nitroConfig.prerender.routes.push(...enProjects, ...ruProjects);
+    }
   },
 
   eslint: {

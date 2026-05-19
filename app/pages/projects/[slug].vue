@@ -15,8 +15,6 @@ const { data: project } = await useAsyncData(
   () => queryCollection(projectsCollectionKey.value).path(path.value).first()
 );
 
-console.log(path.value);
-
 const projectStack = computed(() => project.value?.stack ?? []);
 const projectCompany = computed(() => project.value?.company);
 

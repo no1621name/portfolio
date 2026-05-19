@@ -12,11 +12,16 @@ const activeThemeIcon = computed(() => themes.value.find(theme => theme.value ==
 </script>
 
 <template>
-  <USelect
-    v-model="colorMode.preference"
-    :aria-label="t('themeSwitcher')"
-    :items="themes"
-    :icon="activeThemeIcon"
-    size="sm"
-  />
+  <ClientOnly v-if="!colorMode.forced">
+    <USelect
+      v-model="colorMode.preference"
+      :aria-label="t('themeSwitcher')"
+      :items="themes"
+      :icon="activeThemeIcon"
+      size="sm"
+    />
+    <template #fallback>
+      <USkeleton class="size-7 w-14 bg-muted" />
+    </template>
+  </ClientOnly>
 </template>
