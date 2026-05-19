@@ -1,6 +1,30 @@
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
 
+const CONTENT_DIR = resolve('./content');
+
+function getProjectRoutes(locale: string) {
+  const prefix = locale === 'ru' ? '' : `/${locale}`;
+  const dir = `${CONTENT_DIR}/${locale}/projects`;
+
+  return readdirSync(dir)
+    .filter(f => f.endsWith('.md'))
+    .map(f => `${prefix}/projects/${f.replace(/\.md$/, '')}`);
+}
+
+function getPageRoutes(locale: string) {
+  const prefix = locale === 'ru' ? '' : `/${locale}`;
+  const dir = `${CONTENT_DIR}/${locale}/pages`;
+
+  return readdirSync(dir)
+    .filter(f => f.endsWith('.md'))
+    .map((f) => {
+      const base = f.replace(/\.md$/, '').replace(/^\d+\./, '');
+      if (base === 'index') return prefix || '/';
+      return `${prefix}/${base}`;
+    });
+}
+
 export default defineNuxtConfig({
   modules: [
     '@vercel/speed-insights',
@@ -38,8 +62,6 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { prerender: true },
-    '/en/**': { prerender: true },
     '/projects': { prerender: false, ssr: true },
     '/en/projects': { prerender: false, ssr: true }
   },
@@ -60,19 +82,15 @@ export default defineNuxtConfig({
 
   hooks: {
     'nitro:config'(nitroConfig) {
-      const contentDir = resolve('./content');
-
-      const enProjects = readdirSync(`${contentDir}/en/projects`)
-        .filter(f => f.endsWith('.md'))
-        .map(f => `/en/projects/${f.replace(/\.md$/, '')}`);
-
-      const ruProjects = readdirSync(`${contentDir}/ru/projects`)
-        .filter(f => f.endsWith('.md'))
-        .map(f => `/projects/${f.replace(/\.md$/, '')}`);
-
+      const prerenderedRoutes = [
+        ...getProjectRoutes('en'),
+        ...getProjectRoutes('ru'),
+        ...getPageRoutes('en'),
+        ...getPageRoutes('ru')
+      ];
       nitroConfig.prerender ??= {};
       nitroConfig.prerender.routes ??= [];
-      nitroConfig.prerender.routes.push(...enProjects, ...ruProjects);
+      nitroConfig.prerender.routes.push(...prerenderedRoutes);
     }
   },
 
