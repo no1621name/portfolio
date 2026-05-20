@@ -58,6 +58,11 @@ export default defineNuxtConfig({
       alias: {
         a: 'NuxtLinkLocale'
       }
+    },
+    database: {
+      type: 'libsql',
+      url: process.env.TURSO_URL ?? '',
+      authToken: process.env.TURSO_AUTH_TOKEN ?? ''
     }
   },
 
@@ -65,8 +70,6 @@ export default defineNuxtConfig({
     '/projects': { prerender: false, ssr: true },
     '/en/projects': { prerender: false, ssr: true }
   },
-
-  compatibilityDate: '2024-04-03',
 
   vite: {
     optimizeDeps: {
