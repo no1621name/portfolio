@@ -4,29 +4,34 @@ import { useProjectFilters } from '~/composables/projects/use-project-filters';
 import { useProjectsData } from '~/composables/projects/use-projects-data';
 import { useProjectOptions } from '~/composables/projects/use-project-options';
 import { matchesSearch, matchesStack, matchesCompany } from '~/utils/project-filters';
+import { useGetProjectsCollectionKey, useGetExperienceCollectionKey } from '~/composables/use-get-collection-keys';
 
 const { t, locale } = useI18n();
 
 const projectsCollectionKey = useGetProjectsCollectionKey();
 const experienceCollectionKey = useGetExperienceCollectionKey();
 
-const { data: projects } = await useAsyncData(
-  `projects-${projectsCollectionKey.value}`,
-  () => queryCollection(projectsCollectionKey.value).all(),
-  { watch: [locale] }
-);
-
-const { data: skillsData } = await useAsyncData(
-  'skills-data',
-  () => queryCollection('skills').first(),
-  { watch: [locale] }
-);
-
-const { data: experiences } = await useAsyncData(
-  `experience-${experienceCollectionKey.value}`,
-  () => queryCollection(experienceCollectionKey.value).all(),
-  { watch: [locale] }
-);
+const [
+  { data: projects },
+  { data: skillsData },
+  { data: experiences }
+] = await Promise.all([
+  useAsyncData(
+    `projects-${projectsCollectionKey.value}`,
+    () => queryCollection(projectsCollectionKey.value).all(),
+    { watch: [locale] }
+  ),
+  useAsyncData(
+    'skills-data',
+    () => queryCollection('skills').first(),
+    { watch: [locale] }
+  ),
+  useAsyncData(
+    `experience-${experienceCollectionKey.value}`,
+    () => queryCollection(experienceCollectionKey.value).all(),
+    { watch: [locale] }
+  )
+]);
 
 const { skills, uniqueCompanySlugs, uniqueStackSlugs } = useProjectsData(projects, skillsData);
 const { searchQuery, selectedStack, selectedCompanies } = useProjectFilters();
