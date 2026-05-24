@@ -1,36 +1,37 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content';
+import { defineContentConfig, defineCollection } from '@nuxt/content';
+import { object, array, string, date, number, optional, boolean } from 'valibot';
 
-const pageSchema = z.object({
-  layoutCentered: z.boolean().optional(),
-  terminalMenuLabel: z.string().optional()
+const pageSchema = object({
+  layoutCentered: optional(boolean()),
+  terminalMenuLabel: optional(string())
 });
 
-const skillSchema = z.object({
-  items: z.array(
-    z.object({
-      slug: z.string(),
-      name: z.string(),
-      icon: z.string(),
-      link: z.string(),
-      category: z.string(),
-      order: z.number().optional()
+const skillSchema = object({
+  items: array(
+    object({
+      slug: string(),
+      name: string(),
+      icon: string(),
+      link: string(),
+      category: string(),
+      order: optional(number())
     })
   )
 });
 
-const experienceSchema = z.object({
-  slug: z.string(),
-  company: z.string(),
-  startDate: z.date(),
-  endDate: z.date().optional(),
-  jobTitle: z.string()
+const experienceSchema = object({
+  slug: string(),
+  company: string(),
+  startDate: date(),
+  endDate: optional(date()),
+  jobTitle: string()
 });
 
-const projectSchema = z.object({
-  name: z.string(),
-  stack: z.array(z.string()),
-  company: z.string().optional(),
-  link: z.string().optional()
+const projectSchema = object({
+  name: string(),
+  stack: array(string()),
+  company: optional(string()),
+  link: optional(string())
 });
 
 export default defineContentConfig({
@@ -60,7 +61,6 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'en/experience/**/*.md'
-        // prefix: '/en'
       },
       schema: experienceSchema
     }),
@@ -68,7 +68,6 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'ru/experience/**/*.md'
-        // prefix: ''
       },
       schema: experienceSchema
     }),
