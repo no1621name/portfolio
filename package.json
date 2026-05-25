@@ -24,6 +24,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "nuxt": "4.4.6",
+    "nuxt-security": "2.6.0",
     "pixi.js": "^8.18.1",
     "tailwindcss": "^4.2.4",
     "vue-router": "^5.0.6"
