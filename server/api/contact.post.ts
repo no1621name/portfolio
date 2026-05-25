@@ -1,19 +1,19 @@
+import { safeParse } from 'valibot';
+import { contactSchema } from '@@/shared/schemas/contact';
+import { escapeHtml } from '@@/server/utils/escape-html';
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const result = safeParse(contactSchema, body);
 
-  if (!body.name || !body.telegram) {
+  if (!result.success) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Name and Telegram are required'
+      statusMessage: 'Invalid payload'
     });
   }
 
-  if (!body.telegram.startsWith('@')) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: 'Telegram must start with @'
-    });
-  }
+  const validBody = result.output;
 
   const config = useRuntimeConfig(event);
 
@@ -28,9 +28,9 @@ export default defineEventHandler(async (event) => {
   const message = `
 🔔 <b>Новая заявка с сайта!</b>
 
-👤 <b>Имя:</b> ${body.name}
-✈️ <b>Telegram:</b> ${body.telegram}
-${body.message ? `📝 <b>Сообщение:</b> ${body.message}` : ''} `.trim();
+👤 <b>Имя:</b> ${escapeHtml(validBody.name)}
+✈️ <b>Telegram:</b> ${escapeHtml(validBody.telegram)}
+${validBody.message ? `📝 <b>Сообщение:</b> ${escapeHtml(validBody.message)}` : ''} `.trim();
 
   try {
     await $fetch(`https://api.telegram.org/bot${config.telegramBotToken}/sendMessage`, {
