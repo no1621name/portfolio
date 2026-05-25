@@ -15,10 +15,10 @@ const terminalLinks = await useGetTerminalMenuLinks();
 <template>
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center content-center w-full">
     <div class="flex flex-col h-auto gap-6">
-      <div class="font-heading text-3xl lg:text-4xl text-primary *:leading-none">
+      <h1 class="font-heading text-3xl lg:text-4xl text-primary *:leading-none">
         <slot name="title" />
-      </div>
-      <div class="text-muted text-base lg:text-md max-w-xl *:my-0">
+      </h1>
+      <div class="text-toned text-base lg:text-md max-w-xl *:my-0">
         <slot
           name="description"
         />
@@ -27,7 +27,7 @@ const terminalLinks = await useGetTerminalMenuLinks();
 
     <div class="border w-full lg:ml-auto min-w-0">
       <div class="border-b border-border bg-muted px-3 py-2 flex items-center gap-2">
-        <div class="text-xs text-muted font-mono">
+        <div class="text-xs text-toned font-mono">
           guest@portfolio:~
         </div>
       </div>
@@ -47,11 +47,11 @@ const terminalLinks = await useGetTerminalMenuLinks();
 
               <div class="flex flex-col gap-3 text-text w-full">
                 <p>
-                  <span class="text-muted">role:</span>
+                  <span class="text-toned">role:</span>
                   {{ role }}
                 </p>
                 <p>
-                  <span class="text-muted">status:</span>
+                  <span class="text-toned">status:</span>
                   <UChip
                     as="span"
                     standalone
@@ -63,7 +63,7 @@ const terminalLinks = await useGetTerminalMenuLinks();
                   </span>
                 </p>
                 <p>
-                  <span class="text-muted">location:</span>
+                  <span class="text-toned">location:</span>
                   {{ location }}
                 </p>
               </div>

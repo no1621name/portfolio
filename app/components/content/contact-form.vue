@@ -85,6 +85,7 @@ const onSubmit = async (event: FormSubmitEvent<ContentSchema>) => {
         :label="t('contactForm.messageLabel')"
         name="message"
         :hint="t('contactForm.messageHint')"
+        :ui="{ hint: 'text-toned!' }"
       >
         <UTextarea
           v-model="state.message"

@@ -89,6 +89,7 @@ const filteredProjects = computed(() =>
           :placeholder="t('projects.technologiesPlaceholder')"
           icon="i-lucide-code"
           :clear="selectedStack.length > 0"
+          :ui="{ placeholder: 'text-toned!' }"
           class="flex-1 min-w-48"
         />
 
@@ -100,6 +101,7 @@ const filteredProjects = computed(() =>
           :placeholder="t('projects.companiesPlaceholder')"
           icon="i-lucide-building-2"
           :clear="selectedCompanies.length > 0"
+          :ui="{ placeholder: 'text-toned!' }"
           class="flex-1 min-w-48"
         />
       </div>
@@ -107,7 +109,7 @@ const filteredProjects = computed(() =>
 
     <div class="flex flex-col gap-4">
       <template v-if="isLoading">
-        <div class="text-center py-8 text-muted">
+        <div class="text-center py-8 text-toned">
           {{ t('projects.loading') }}
         </div>
       </template>
@@ -123,7 +125,7 @@ const filteredProjects = computed(() =>
 
         <div
           v-if="filteredProjects.length === 0"
-          class="text-center py-8 text-muted"
+          class="text-center py-8 text-toned"
         >
           {{ t('projects.noResults') }}
         </div>

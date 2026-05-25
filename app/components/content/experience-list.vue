@@ -50,13 +50,13 @@ function calculateDuration(startDate: Date | string, endDate?: Date | string): s
       <div class="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 w-full py-2 px-0 border-b border-transparent hover:border-divider transition-colors">
         <div class="flex flex-col">
           <span class="font-heading text-xl text-primary">
-            <span class="text-muted mr-2">&gt;</span>{{ entry.company }}
+            <span class="text-toned mr-2">&gt;</span>{{ entry.company }}
           </span>
-          <span class="text-secondary text-sm">
+          <span class="text-toned text-sm">
             {{ entry.jobTitle }}
           </span>
         </div>
-        <div class="flex items-center gap-3 text-sm text-muted font-mono whitespace-nowrap">
+        <div class="flex items-center gap-3 text-sm text-toned font-mono whitespace-nowrap">
           <span class="text-primary/70">
             {{ calculateDuration(entry.startDate, entry.endDate) }}
           </span>

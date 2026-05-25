@@ -18,10 +18,15 @@ const { data: page } = await useAsyncData('page-' + route.path, () =>
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
+
+useHead({
+  title: page.value?.title
+});
 </script>
 
 <template>
   <div :class="!!page?.layoutCentered ? 'flex flex-col justify-center grow' : 'w-full'">
+    <h1 class="sr-only" v-if="page?.title && !['Index', 'Главная'].includes(page.title)">{{ page.title }}</h1>
     <ContentRenderer
       v-if="page"
       :value="page"

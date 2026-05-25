@@ -41,6 +41,10 @@ const { data: company } = await useAsyncData<ExperienceCollectionItem | null>(
 if (!project.value) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found', fatal: true });
 }
+
+useHead({
+  title: project.value?.name
+});
 </script>
 
 <template>

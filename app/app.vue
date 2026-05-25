@@ -11,6 +11,15 @@ const transitionOptions = computed(() => {
     ? 'none'
     : 'page';
 });
+
+const { locale } = useI18n();
+
+useHead({
+  htmlAttrs: {
+    lang: locale
+  },
+  titleTemplate: (title) => title ? `${title} | guest@portfolio:~` : 'guest@portfolio:~'
+});
 </script>
 
 <template>

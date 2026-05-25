@@ -16,9 +16,9 @@ const { data: skills } = await useAsyncData(
 
 <template>
   <section class="flex flex-col gap-6 mb-8">
-    <h3 class="font-heading text-2xl text-primary">
+    <h2 class="font-heading text-2xl text-primary">
       // {{ title }}
-    </h3>
+    </h2>
 
     <div class="w-full grid auto-rows-fr grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6  items-center gap-4">
       <UTooltip
