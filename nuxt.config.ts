@@ -67,6 +67,11 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+    telegramChatId: process.env.TELEGRAM_CHAT_ID
+  },
+
   routeRules: {
     '/projects': { prerender: false, ssr: true },
     '/en/projects': { prerender: false, ssr: true },
