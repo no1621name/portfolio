@@ -1,6 +1,6 @@
 import type { RunMatrix } from '~/components/ui/matrix-transition.vue';
 
-export interface MatrixIntsance {
+export interface MatrixInstance {
   run: RunMatrix;
 }
 
@@ -9,7 +9,7 @@ export default defineNuxtPlugin({
   setup() {
     const skipPageTransition = useSkipPageTransition();
     const { afterEach, beforeEach } = useRouter();
-    const matrixRef = shallowRef<MatrixIntsance | null>(null);
+    const matrixRef = shallowRef<MatrixInstance | null>(null);
 
     beforeEach((to, from) => {
       const isLangSwitch = to.params.slug?.[0] === from.params.slug?.[0];
@@ -25,7 +25,7 @@ export default defineNuxtPlugin({
 
     return {
       provide: {
-        matrix: (matrix: MatrixIntsance) => (matrixRef.value = matrix)
+        matrix: (matrix: MatrixInstance) => (matrixRef.value = matrix)
       }
     };
   }

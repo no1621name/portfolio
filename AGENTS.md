@@ -18,11 +18,11 @@ A bilingual (EN/RU) portfolio website showcasing programming skills, work experi
 - Iconify icons for skills
 
 ## Tech Stack
-- Nuxt 4.4.2 with Nuxt Content v3 collections
+- Nuxt 4.4.6 with Nuxt Content v3 collections
 - Nuxt UI v4 + Tailwind CSS v4
 - pnpm workspace (monorepo structure)
 - TypeScript with project references
-- SQLite (better-sqlite3)
+- SQLite (libsql)
 
 ## Commands
 ```bash
@@ -51,3 +51,24 @@ For architecture details view [design doc](DESIGN.md)
 - No test framework or CI/CD configured
 - OpenCode MCP integration with Nuxt UI available via opencode.json
 - For component files use kebab-case
+
+<!-- OCR:START -->
+## Open Code Review Instructions
+
+These instructions are for AI assistants handling code review in this project.
+
+Always open `.ocr/skills/SKILL.md` when the request:
+- Asks for code review, PR review, or feedback on changes
+- Mentions "review my code" or similar phrases
+- Wants multi-perspective analysis of code quality
+- Asks to map, organize, or navigate a large changeset
+
+Use `.ocr/skills/SKILL.md` to learn:
+- How to run the 8-phase review workflow
+- How to generate a Code Review Map for large changesets
+- Available reviewer personas and their focus areas
+- Session management and output format
+
+Keep this managed block so `ocr init` can refresh the instructions.
+
+<!-- OCR:END -->

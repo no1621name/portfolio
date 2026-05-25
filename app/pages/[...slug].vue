@@ -9,7 +9,7 @@ const slug = computed(() => Array.isArray(route.params.slug) ? route.params.slug
 const path = computed(() => {
   const localePrefix = locale.value === defaultLocale ? '' : `/${locale.value}`;
 
-  return `${localePrefix}/${slug.value}`;
+  return `${localePrefix}/${slug.value.join('/')}`;
 });
 const { data: page } = await useAsyncData('page-' + route.path, () =>
   queryCollection(collectionKey.value).path(path.value).first()

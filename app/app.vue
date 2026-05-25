@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { MatrixIntsance } from './plugins/matrix-transition.client';
+import type { MatrixInstance } from './plugins/matrix-transition.client';
 
-const matrixRef = useTemplateRef<MatrixIntsance>('matrixRef');
+const matrixRef = useTemplateRef<MatrixInstance>('matrixRef');
 const { $matrix } = useNuxtApp();
 onMounted(() => $matrix(matrixRef.value));
 
