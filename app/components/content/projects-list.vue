@@ -22,9 +22,8 @@ const [
     { watch: [locale] }
   ),
   useAsyncData(
-    'skills-data',
-    () => queryCollection('skills').first(),
-    { watch: [locale] }
+    `skills-data`,
+    () => queryCollection('skills').first()
   ),
   useAsyncData(
     `experience-${experienceCollectionKey.value}`,
