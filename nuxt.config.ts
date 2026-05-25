@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/i18n',
+    '@nuxtjs/seo',
     'nuxt-security'
   ],
   devtools: { enabled: true },

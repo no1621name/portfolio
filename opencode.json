@@ -4,6 +4,10 @@
         "nuxt-ui": {
             "type": "remote",
             "url": "https://ui.nuxt.com/mcp"
+        },
+        "nuxt-seo": {
+            "type": "remote",
+            "url": "https://nuxtseo.com/mcp"
         }
     }
 }
