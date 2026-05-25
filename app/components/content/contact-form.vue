@@ -1,23 +1,15 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '@nuxt/ui';
-import { type InferOutput, string, minLength, object, optional, pipe, startsWith } from 'valibot';
+import { type ContentSchema, contactSchema } from '@@/shared/schemas/contact';
 
 const { t } = useI18n();
 
-const formSchema = object({
-  name: pipe(string(), minLength(1, t('contactForm.nameRequired'))),
-  telegram: pipe(string(), minLength(1, t('contactForm.telegramRequired')), startsWith('@', t('contactForm.telegramInvalid'))),
-  message: optional(string())
-});
-
-type FormState = InferOutput<typeof formSchema>;
-
-const initialState: FormState = {
+const initialState: ContentSchema = {
   name: '',
   telegram: '',
   message: ''
 };
-const state = reactive<FormState>({ ...initialState });
+const state = reactive<ContentSchema>({ ...initialState });
 
 const loading = ref(false);
 const success = ref(false);
@@ -33,7 +25,7 @@ watch(state, (newState) => {
 
 const { csrf, headerName } = useCsrf();
 
-const onSubmit = async (event: FormSubmitEvent<FormState>) => {
+const onSubmit = async (event: FormSubmitEvent<ContentSchema>) => {
   loading.value = true;
   success.value = false;
   error.value = '';
@@ -61,7 +53,7 @@ const onSubmit = async (event: FormSubmitEvent<FormState>) => {
   <div>
     <UForm
       :state="state"
-      :schema="formSchema"
+      :schema="contactSchema"
       class="space-y-4"
       @submit="onSubmit"
     >
