@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '@nuxt/ui';
-import { type InferOutput, string, minLength, object, optional, pipe } from 'valibot';
+import { type InferOutput, string, minLength, object, optional, pipe, startsWith } from 'valibot';
 
 const { t } = useI18n();
 
 const formSchema = object({
   name: pipe(string(), minLength(1, t('contactForm.nameRequired'))),
-  telegram: pipe(string(), minLength(1, t('contactForm.telegramRequired'))),
+  telegram: pipe(string(), minLength(1, t('contactForm.telegramRequired')), startsWith('@', t('contactForm.telegramInvalid'))),
   message: optional(string())
 });
 
@@ -23,10 +23,20 @@ const loading = ref(false);
 const success = ref(false);
 const error = ref('');
 
+watch(state, (newState) => {
+  const isReset = !newState.name && !newState.telegram && !newState.message;
+  if (isReset) return;
+
+  if (success.value) success.value = false;
+  if (error.value) error.value = '';
+}, { deep: true });
+
 const { csrf, headerName } = useCsrf();
 
 const onSubmit = async (event: FormSubmitEvent<FormState>) => {
   loading.value = true;
+  success.value = false;
+  error.value = '';
   try {
     await $fetch('/api/contact', {
       method: 'POST',
