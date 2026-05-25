@@ -35,7 +35,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    'nuxt-security'
   ],
   devtools: { enabled: true },
 
@@ -66,15 +67,24 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN,
+    telegramChatId: process.env.TELEGRAM_CHAT_ID
+  },
+
   routeRules: {
     '/projects': { prerender: false, ssr: true },
-    '/en/projects': { prerender: false, ssr: true }
+    '/en/projects': { prerender: false, ssr: true },
+    '/__nuxt_content/**': {
+      csurf: false
+    }
   },
 
   vite: {
     optimizeDeps: {
       include: [
-        'pixi.js'
+        'pixi.js',
+        'valibot'
       ]
     }
   },
@@ -126,6 +136,20 @@ export default defineNuxtConfig({
     clientBundle: {
       scan: true,
       includeCustomCollections: true
+    }
+  },
+
+  security: {
+    csrf: {
+      enabled: true,
+      methodsToProtect: ['POST']
+    },
+    rateLimiter: {
+      tokensPerInterval: 60,
+      interval: 60000
+    },
+    headers: {
+      contentSecurityPolicy: false
     }
   }
 });

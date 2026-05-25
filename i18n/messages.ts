@@ -20,6 +20,21 @@ const messages = {
       company: 'Company',
       link: 'Link',
       viewProject: 'View project'
+    },
+    contactForm: {
+      nameLabel: 'Name',
+      namePlaceholder: 'Your name',
+      nameRequired: 'Name is required',
+      telegramLabel: 'Telegram',
+      telegramPlaceholder: '{\'@\'}your_handle',
+      telegramRequired: 'Telegram is required',
+      telegramInvalid: 'Telegram must start with {\'@\'}',
+      messageLabel: 'Message',
+      messageHint: 'Optional',
+      messagePlaceholder: 'Your message',
+      submit: 'Submit',
+      success: 'Form submitted successfully!',
+      error: 'Something went wrong'
     }
   },
   ru: {
@@ -43,6 +58,21 @@ const messages = {
       company: 'Компания',
       link: 'Ссылка',
       viewProject: 'Перейти к проекту'
+    },
+    contactForm: {
+      nameLabel: 'Имя',
+      namePlaceholder: 'Ваше имя',
+      nameRequired: 'Имя обязательно',
+      telegramLabel: 'Telegram',
+      telegramPlaceholder: '{\'@\'}ваш_ник',
+      telegramRequired: 'Telegram обязателен',
+      telegramInvalid: 'Telegram должен начинаться с {\'@\'}',
+      messageLabel: 'Сообщение',
+      messageHint: 'Необязательно',
+      messagePlaceholder: 'Ваше сообщение',
+      submit: 'Отправить',
+      success: 'Форма успешно отправлена!',
+      error: 'Что-то пошло не так'
     }
   }
 };

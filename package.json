@@ -24,6 +24,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "nuxt": "4.4.6",
+    "nuxt-security": "2.6.0",
     "pixi.js": "^8.18.1",
     "tailwindcss": "^4.2.4",
     "vue-router": "^5.0.6"
@@ -32,9 +33,11 @@
     "@iconify-json/logos": "^1.2.11",
     "@iconify-json/lucide": "^1.2.105",
     "@types/node": "^25.9.1",
+    "@valibot/to-json-schema": "^1.7.0",
     "eslint": "^9.39.4",
     "lefthook": "^2.1.6",
     "typescript": "^6.0.3",
+    "valibot": "^1.4.0",
     "vue-tsc": "^3.2.7"
   },
   "pnpm": {
