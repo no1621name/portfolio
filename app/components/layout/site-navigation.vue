@@ -22,21 +22,25 @@ const isActive = (path: string) => {
 
 <template>
   <nav class="flex gap-x-2 items-center justify-center md:justify-center fixed bottom-0 left-0 right-0 md:relative md:bottom-auto md:left-auto md:right-auto z-50 bg-default border-t border-default md:border-t-0">
-    <UTooltip
+    <template
       v-for="link in navLinks"
       :key="link.path"
-      :text="link.label"
     >
-      <UButton
-        :to="localePath(link.path)"
-        :aria-label="link.label"
-        :variant="isActive(link.path) ? 'solid' : 'ghost'"
-        class="leading-none"
-        size="lg"
-        square
+      <UTooltip
+        v-if="link.symbol"
+        :text="link.label"
       >
-        {{ link.symbol }}
-      </UButton>
-    </UTooltip>
+        <UButton
+          :to="localePath(link.path)"
+          :aria-label="link.label"
+          :variant="isActive(link.path) ? 'solid' : 'ghost'"
+          class="leading-none"
+          size="lg"
+          square
+        >
+          {{ link.symbol }}
+        </UButton>
+      </UTooltip>
+    </template>
   </nav>
 </template>
