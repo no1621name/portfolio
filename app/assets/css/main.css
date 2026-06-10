@@ -4,9 +4,9 @@
 @source "../../../content/**/*";
 
 @theme {
-  --font-sans: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-heading: 'PT Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'JetBrains Mono', ui-monospace, monospace;
+  --font-heading: 'PT Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   --text-xs: 12px;
   --text-sm: 14px;
