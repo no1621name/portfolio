@@ -1,4 +1,6 @@
-const messages = {
+export const DEFAULT_LOCALE = 'ru';
+
+export const messages = {
   en: {
     themeSwitcher: 'Theme switcher',
     experience: {
@@ -35,6 +37,14 @@ const messages = {
       submit: 'Submit',
       success: 'Form submitted successfully!',
       error: 'Something went wrong'
+    },
+    api: {
+      errors: {
+        internal: 'Internal Server Error'
+      },
+      contact: {
+        failedSend: 'Failed to send message'
+      }
     }
   },
   ru: {
@@ -73,8 +83,14 @@ const messages = {
       submit: 'Отправить',
       success: 'Форма успешно отправлена!',
       error: 'Что-то пошло не так'
+    },
+    api: {
+      errors: {
+        internal: 'Внутренняя ошибка сервера'
+      },
+      contact: {
+        failedSend: 'Не получилось отправить сообщение'
+      }
     }
   }
 };
-
-export default messages;

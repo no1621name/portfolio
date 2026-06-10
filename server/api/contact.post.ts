@@ -1,15 +1,27 @@
-import { safeParse } from 'valibot';
-import { contactSchema } from '@@/shared/schemas/contact';
+import { safeParse, object, string, optional } from 'valibot';
+import { createContactSchema } from '@@/shared/schemas/contact';
 import { escapeHtml } from '@@/server/utils/escape-html';
+import { messages, DEFAULT_LOCALE } from '@@/i18n';
+
+const querySchema = object({
+  locale: optional(string())
+});
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const query = getQuery(event);
+
+  const parsedQuery = safeParse(querySchema, query);
+
+  const locale = (parsedQuery.success && parsedQuery.output.locale) || DEFAULT_LOCALE;
+  const apiMessages = messages[locale as keyof typeof messages].api;
+  const contactSchema = createContactSchema(locale, messages);
   const result = safeParse(contactSchema, body);
 
   if (!result.success) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Invalid payload'
+      data: result.issues
     });
   }
 
@@ -21,7 +33,7 @@ export default defineEventHandler(async (event) => {
     console.error('Telegram configuration is missing');
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error'
+      message: apiMessages.errors.internal
     });
   }
 
@@ -48,7 +60,7 @@ ${validBody.message ? `📝 <b>Сообщение:</b> ${escapeHtml(validBody.me
     console.error('Telegram API error:', error);
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to send message'
+      message: apiMessages.contact.failedSend
     });
   }
 });

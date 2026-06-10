@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import type { FormSubmitEvent } from '@nuxt/ui';
-import { type ContentSchema, contactSchema } from '@@/shared/schemas/contact';
+import { computed, reactive, ref, watch } from 'vue';
+import { createContactSchema, type ContactSchema } from '@@/shared/schemas/contact';
+import { messages } from '@@/i18n';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
-const initialState: ContentSchema = {
+const initialState: ContactSchema = {
   name: '',
   telegram: '',
   message: ''
 };
-const state = reactive<ContentSchema>({ ...initialState });
+
+const state = reactive<ContactSchema>({ ...initialState });
+
+const contactSchema = computed(() => createContactSchema(locale.value, messages));
 
 const loading = ref(false);
 const success = ref(false);
@@ -25,7 +30,7 @@ watch(state, (newState) => {
 
 const { csrf, headerName } = useCsrf();
 
-const onSubmit = async (event: FormSubmitEvent<ContentSchema>) => {
+const onSubmit = async (event: FormSubmitEvent<ContactSchema>) => {
   loading.value = true;
   success.value = false;
   error.value = '';
@@ -35,10 +40,20 @@ const onSubmit = async (event: FormSubmitEvent<ContentSchema>) => {
       body: event.data,
       headers: {
         [headerName]: csrf
+      },
+      query: {
+        locale: locale.value
       }
-    });
-    success.value = true;
-    Object.assign(state, initialState);
+    })
+      .then(() => {
+        success.value = true;
+        Object.assign(state, initialState);
+      })
+      .catch((e) => {
+        if (e.data.message) {
+          error.value = e.data.message;
+        }
+      });
   }
   catch {
     error.value = t('contactForm.error');
