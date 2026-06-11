@@ -53,6 +53,13 @@ if (!project.value) {
         {{ project.name }}
       </h1>
 
+      <img
+        v-if="project.image"
+        :src="project.image"
+        :alt="project.name"
+        class="w-full aspect-video object-cover rounded-lg border border-divider"
+      >
+
       <div class="text-sm text-primary/80 prose prose-mono prose-invert max-w-none">
         <ContentRenderer :value="project" />
       </div>
