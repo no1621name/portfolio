@@ -31,7 +31,8 @@ const projectSchema = object({
   name: string(),
   stack: array(string()),
   company: optional(string()),
-  link: optional(string())
+  link: optional(string()),
+  image: optional(string())
 });
 
 export default defineContentConfig({
