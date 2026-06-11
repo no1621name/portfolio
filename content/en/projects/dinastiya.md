@@ -2,6 +2,7 @@
 name: Dinastiya Dentistry
 stack:
   - wordpress
+  - typescript
   - php
 company: drozzi
 link: https://dinastiya-37.ru/

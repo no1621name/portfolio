@@ -2,6 +2,7 @@
 name: Загород
 stack:
   - wordpress
+  - typescript
   - php
 company: drozzi
 link: https://zagorodgroup.ru/

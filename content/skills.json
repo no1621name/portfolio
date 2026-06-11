@@ -68,8 +68,8 @@
       "category": "frontend"
     },
     {
-      "slug": "regexle",
-      "name": "Regele.js",
+      "slug": "reglejs",
+      "name": "Reglejs.js",
       "icon": "custom:reglejs",
       "link": "https://reglejs.dev/",
       "category": "frontend"

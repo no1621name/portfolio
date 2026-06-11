@@ -2,6 +2,7 @@
 name: VIP Aqua Service
 stack:
   - wordpress
+  - typescript
   - php
 company: drozzi
 link: https://vipaquaservice.ru/
