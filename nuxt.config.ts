@@ -55,10 +55,7 @@ export default defineNuxtConfig({
 
   content: {
     renderer: {
-      anchorLinks: false,
-      alias: {
-        a: 'NuxtLinkLocale'
-      }
+      anchorLinks: false
     },
     database: {
       type: 'libsql',

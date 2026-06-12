@@ -16,9 +16,9 @@ const path = computed(() => '/' + props.project.stem.split('/').slice(1).join('/
 <template>
   <NuxtLinkLocale
     :to="path"
-    class="group block p-4 border border-divider rounded-lg hover:border-primary/50 transition-colors"
+    class="group block border border-divider rounded-lg hover:border-primary/50 transition-colors"
   >
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 p-4">
       <h3 class="font-heading text-lg text-primary group-hover:text-primary/80 transition-colors">
         {{ project.name }}
       </h3>

@@ -5,5 +5,6 @@ export function getPreviewText(body: unknown, maxLength = 150): string {
   const paragraphs = typed?.value ?? [];
   const firstPara = paragraphs.find(p => p[0] === 'p');
   if (!firstPara) return '';
-  return firstPara[2].slice(0, maxLength);
+  const text = firstPara[2];
+  return text.length > maxLength ? text.slice(0, maxLength - 3) + '...' : text;
 }
