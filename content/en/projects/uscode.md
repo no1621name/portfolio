@@ -10,6 +10,7 @@ stack:
   - zustand
   - vite
   - docker
+  - github-actions
 company: uscode
 image: /images/projects/uscode.png
 ---
