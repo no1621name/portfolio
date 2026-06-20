@@ -9,7 +9,7 @@ stack:
   - php
   - laravel
   - docker
-link: http://georges1621.fvds.ru
+link: https://github.com/no1621name/ymaps-parser
 image: /images/projects/ymaps-parser.png
 ---
 
