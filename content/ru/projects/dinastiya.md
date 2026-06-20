@@ -7,6 +7,7 @@ stack:
 company: drozzi
 link: https://dinastiya-37.ru/
 image: /images/projects/dinastiya-37.png
+description: 'Корпоративный сайт стоматологической клиники «Династия» (г. Иваново).'
 ---
 
 Корпоративный сайт стоматологической клиники «Династия» (г. Иваново).

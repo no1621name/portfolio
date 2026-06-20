@@ -6,6 +6,7 @@ stack:
 company: drozzi
 link: https://dom-vin.ru/
 image: /images/projects/dom-vin.png
+description: 'Интернет-витрина для винного магазина «Рассказово».'
 ---
 
 Интернет-витрина для винного магазина «Рассказово».

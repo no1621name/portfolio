@@ -3,7 +3,8 @@ import { object, array, string, date, number, optional, boolean } from 'valibot'
 
 const pageSchema = object({
   layoutCentered: optional(boolean()),
-  terminalMenuLabel: optional(string())
+  terminalMenuLabel: optional(string()),
+  description: optional(string())
 });
 
 const skillSchema = object({
@@ -32,7 +33,8 @@ const projectSchema = object({
   stack: array(string()),
   company: optional(string()),
   link: optional(string()),
-  image: optional(string())
+  image: optional(string()),
+  description: optional(string())
 });
 
 export default defineContentConfig({

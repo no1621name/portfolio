@@ -7,6 +7,7 @@ stack:
 company: drozzi
 link: https://dinastiya-37.ru/
 image: /images/projects/dinastiya-37.png
+description: 'Corporate website for "Dinastiya", a dental clinic based in Ivanovo.'
 ---
 
 Corporate website for "Dinastiya", a dental clinic based in Ivanovo.

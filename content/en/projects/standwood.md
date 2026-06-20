@@ -5,6 +5,7 @@ stack:
 company: drozzi
 link: https://standwood.ru/
 image: /images/projects/standwood.png
+description: 'Website for Standwood, a furniture manufacturer crafting premium wooden storage systems.'
 ---
 
 Website for Standwood, a furniture manufacturer crafting premium wooden storage systems.
