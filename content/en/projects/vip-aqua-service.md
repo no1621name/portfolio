@@ -7,6 +7,7 @@ stack:
 company: drozzi
 link: https://vipaquaservice.ru/
 image: /images/projects/vipaquaservice.png
+description: 'Website for VIP Aqua Service, a company specializing in the turnkey design and construction of swimming pools.'
 ---
 
 Website for VIP Aqua Service, a company specializing in the turnkey design and construction of swimming pools.

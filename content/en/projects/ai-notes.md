@@ -16,6 +16,7 @@ stack:
   - github-actions
 link: https://ai-notes-1621.vercel.app/
 image: /images/projects/ai-notes.png
+description: 'An AI-powered note-taking application built with FSD architecture for scalability and efficient text editing.'
 ---
 
 An note-taking application that combines a familiar editing interface with the power of AI models. The project is built using the Feature-Sliced Design (FSD) architecture, ensuring high scalability and maintainable code.

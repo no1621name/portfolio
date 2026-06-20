@@ -5,6 +5,7 @@ stack:
 company: drozzi
 link: https://standwood.ru/
 image: /images/projects/standwood.png
+description: 'Сайт мебельной мануфактуры Standwood, производящей премиальные системы хранения из дерева.'
 ---
 
 Сайт мебельной мануфактуры Standwood, производящей премиальные системы хранения из дерева.

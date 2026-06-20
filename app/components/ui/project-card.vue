@@ -23,7 +23,7 @@ const path = computed(() => '/' + props.project.stem.split('/').slice(1).join('/
         {{ project.name }}
       </h3>
 
-      <p class="text-sm text-secondary line-clamp-2">
+      <p class="text-sm text-toned line-clamp-2">
         {{ getPreviewText(project.body) }}
       </p>
 
@@ -45,7 +45,7 @@ const path = computed(() => '/' + props.project.stem.split('/').slice(1).join('/
 
         <span
           v-if="company"
-          class="text-xs text-muted font-mono ml-auto"
+          class="text-xs text-toned font-mono ml-auto"
         >
           {{ company.company }}
         </span>

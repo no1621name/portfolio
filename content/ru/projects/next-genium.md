@@ -6,6 +6,7 @@ stack:
 company: drozzi
 link: https://next-genium.com/
 image: /images/projects/next-genium.png
+description: 'Корпоративный сайт для перспективной геймдев-студии Next Genium, создающей игры для ПК и консолей.'
 ---
 
 Корпоративный сайт для перспективной геймдев-студии Next Genium, создающей игры для ПК и консолей.

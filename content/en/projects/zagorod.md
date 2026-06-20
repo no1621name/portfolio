@@ -7,6 +7,7 @@ stack:
 company: drozzi
 link: https://zagorodgroup.ru/
 image: /images/projects/zagorod.png
+description: 'Website for an event agency specializing in country property rentals and event organization.'
 ---
 
 Website for an event agency specializing in country property rentals and event organization.

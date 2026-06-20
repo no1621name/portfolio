@@ -6,6 +6,7 @@ stack:
 company: drozzi
 link: https://dom-vin.ru/
 image: /images/projects/dom-vin.png
+description: 'E-commerce storefront for the "Rasskazovo" wine boutique.'
 ---
 
 E-commerce storefront for the "Rasskazovo" wine boutique.

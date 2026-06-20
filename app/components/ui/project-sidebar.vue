@@ -22,9 +22,9 @@ const externalLink = computed(() => {
       v-if="skills.length"
       class="flex flex-col gap-3"
     >
-      <h3 class="text-sm font-mono text-muted uppercase">
+      <h2 class="text-sm font-mono text-toned uppercase">
         {{ t('projectDetail.technologies') }}
-      </h3>
+      </h2>
       <div class="flex flex-wrap gap-2">
         <UBadge
           v-for="skill in skills"
@@ -47,9 +47,9 @@ const externalLink = computed(() => {
       v-if="company"
       class="flex flex-col gap-3"
     >
-      <h3 class="text-sm font-mono text-muted uppercase">
+      <h2 class="text-sm font-mono text-toned uppercase">
         {{ t('projectDetail.company') }}
-      </h3>
+      </h2>
       <span class="text-primary">
         {{ company.company }}
       </span>
@@ -59,9 +59,9 @@ const externalLink = computed(() => {
       v-if="externalLink"
       class="flex flex-col gap-3"
     >
-      <h3 class="text-sm font-mono text-muted uppercase">
+      <h2 class="text-sm font-mono text-toned uppercase">
         {{ t('projectDetail.link') }}
-      </h3>
+      </h2>
       <NuxtLinkLocale
         :to="externalLink"
         target="_blank"

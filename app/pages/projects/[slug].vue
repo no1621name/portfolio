@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { SkillItem, ExperienceCollectionItem } from '~/types/content';
 
+const config = useAppConfig();
 const route = useRoute();
 const { locale } = useI18n();
 
@@ -40,6 +41,22 @@ const { data: company } = await useAsyncData<ExperienceCollectionItem | null>(
 
 if (!project.value) {
   throw createError({ statusCode: 404, statusMessage: 'Project not found', fatal: true });
+}
+
+const metadata = {
+  title: project.value?.name,
+  description: project.value?.description || config.defaultInfo.project
+};
+
+useSeoMeta(metadata);
+
+if (project.value?.image) {
+  useSeoMeta({
+    ogImage: project.value.image
+  });
+}
+else {
+  defineOgImage('NuxtSeo.satori', metadata);
 }
 </script>
 
