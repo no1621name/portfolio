@@ -35,6 +35,10 @@ const messages = {
       submit: 'Submit',
       success: 'Form submitted successfully!',
       error: 'Something went wrong'
+    },
+    nuxtSiteConfig: {
+      name: 'Georgii Sysuev',
+      description: 'Frontend developer portfolio'
     }
   },
   ru: {
@@ -73,6 +77,10 @@ const messages = {
       submit: 'Отправить',
       success: 'Форма успешно отправлена!',
       error: 'Что-то пошло не так'
+    },
+    nuxtSiteConfig: {
+      name: 'Георгий Сысуев',
+      description: 'Портфолио фронтенд-разработчика'
     }
   }
 };
