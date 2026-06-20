@@ -1,6 +1,14 @@
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
 
+const DEFAULT_INFO = {
+  name: 'Георгий Сысуев',
+  description: 'Портфолио фронтенд-разработчика',
+  url: 'https://georges1621-portfolio.vercel.app',
+  projectDescription: 'Проект портфолио',
+  locale: 'ru'
+};
+
 const CONTENT_DIR = resolve('./content');
 
 function getProjectRoutes(locale: string) {
@@ -47,6 +55,14 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  site: {
+    url: DEFAULT_INFO.url,
+    name: DEFAULT_INFO.name,
+    description: DEFAULT_INFO.description,
+    defaultLocale: DEFAULT_INFO.locale,
+    indexable: true
+  },
+
   colorMode: {
     classSuffix: '-theme',
     storage: 'cookie',
@@ -63,6 +79,10 @@ export default defineNuxtConfig({
       url: process.env.TURSO_URL ?? '',
       authToken: process.env.TURSO_AUTH_TOKEN ?? ''
     }
+  },
+
+  appConfig: {
+    defaultInfo: DEFAULT_INFO
   },
 
   runtimeConfig: {
@@ -121,7 +141,7 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', language: 'en-US' },
       { code: 'ru', name: 'Русский', language: 'ru-RU' }
     ],
-    defaultLocale: 'ru',
+    defaultLocale: DEFAULT_INFO.locale,
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false
   },
@@ -137,7 +157,26 @@ export default defineNuxtConfig({
     }
   },
 
+  linkChecker: {
+    enabled: false
+  },
+
+  ogImage: {
+    security: {
+      renderTimeout: 30000
+    }
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Person',
+      name: 'Georgii Sysuev',
+      url: DEFAULT_INFO.url
+    }
+  },
+
   security: {
+    corsHandler: false,
     csrf: {
       enabled: true,
       methodsToProtect: ['POST']
