@@ -54,6 +54,13 @@
       "order": 1
     },
     {
+      "slug": "vue-router",
+      "name": "Vue Router",
+      "icon": "i-logos-vue",
+      "link": "https://router.vuejs.org/",
+      "category": "frontend"
+    },
+    {
       "slug": "pinia",
       "name": "Pinia",
       "icon": "i-logos-pinia",
