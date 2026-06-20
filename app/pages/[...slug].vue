@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useGetPageCollectionKey } from '~/composables/use-get-collection-keys';
 
+const config = useAppConfig();
 const route = useRoute();
 const { locale, defaultLocale } = useI18n();
 const collectionKey = useGetPageCollectionKey();
@@ -19,14 +20,23 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true });
 }
 
-useHead({
-  title: page.value?.title
-});
+const metadata = {
+  title: page.value?.title,
+  description: page.value?.description || config.defaultInfo.description
+};
+
+useSeoMeta(metadata);
+defineOgImage('NuxtSeo.satori', metadata);
 </script>
 
 <template>
   <div :class="!!page?.layoutCentered ? 'flex flex-col justify-center grow' : 'w-full'">
-    <h1 class="sr-only" v-if="page?.title && !['Index', 'Главная'].includes(page.title)">{{ page.title }}</h1>
+    <h1
+      v-if="page?.title && !['Index', 'Главная'].includes(page.title)"
+      class="sr-only"
+    >
+      {{ page.title }}
+    </h1>
     <ContentRenderer
       v-if="page"
       :value="page"
