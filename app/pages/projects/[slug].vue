@@ -40,6 +40,7 @@ const { data: company } = await useAsyncData<ExperienceCollectionItem | null>(
 );
 
 if (!project.value) {
+  console.log(project);
   throw createError({ statusCode: 404, statusMessage: 'Project not found', fatal: true });
 }
 
@@ -70,13 +71,17 @@ else {
         {{ project.name }}
       </h1>
 
-      <NuxtImg
+      <div
         v-if="project.image"
-        :src="project.image"
-        :alt="project.name"
-        :placeholder="[50, 25]"
-        class="w-full rounded-lg border border-divider"
-      />
+        class="aspect-video overflow-hidden rounded-lg border border-divider"
+      >
+        <NuxtImg
+          :src="project.image"
+          :alt="project.name"
+          :placeholder="[48, 27]"
+          class="h-full w-full object-cover"
+        />
+      </div>
 
       <div class="text-sm text-primary/80 prose prose-mono prose-invert max-w-none">
         <ContentRenderer :value="project" />
