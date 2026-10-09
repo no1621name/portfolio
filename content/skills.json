@@ -34,7 +34,7 @@
     {
       "slug": "zustand",
       "name": "Zustand",
-      "icon": "custom:zustand",
+      "icon": "devicon:zustand",
       "link": "https://zustand-demo.pmnd.rs/",
       "category": "frontend"
     },
@@ -182,6 +182,20 @@
       "name": "Supabase",
       "icon": "i-logos-supabase-icon",
       "link": "https://supabase.com/",
+      "category": "backend"
+    },
+    {
+      "slug": "nodejs",
+      "name": "Node.js",
+      "icon": "i-logos-nodejs-icon",
+      "link": "https://nodejs.org/",
+      "category": "backend"
+    },
+    {
+      "slug": "nestjs",
+      "name": "NestJS",
+      "icon": "i-logos-nestjs",
+      "link": "https://nestjs.com/",
       "category": "backend"
     },
     {
