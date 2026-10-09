@@ -1,15 +1,15 @@
-import type { MatrixIntsance } from './matrix-transition.client';
+import type { MatrixInstance } from './matrix-transition.client';
 
 declare module '#app' {
   interface NuxtApp {
-    $matrix: (inst: MatrixIntsance | null) => void;
+    $matrix: (inst: MatrixInstance | null) => void;
   }
 }
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $matrix: (inst: MatrixIntsance | null) => void;
+    $matrix: (inst: MatrixInstance | null) => void;
   }
 }
 
-export {};
+export { };

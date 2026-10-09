@@ -7,7 +7,7 @@ const DEFAULT_INFO = {
   url: 'https://georges1621-portfolio.vercel.app',
   projectDescription: 'Проект портфолио',
   locale: 'ru'
-};
+} as const;
 
 const CONTENT_DIR = resolve('./content');
 
@@ -46,6 +46,10 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
     'nuxt-security'
+  ],
+
+  plugins: [
+    '~/plugins/matrix-transition.client.ts'
   ],
   devtools: { enabled: true },
 
@@ -97,6 +101,8 @@ export default defineNuxtConfig({
       csurf: false
     }
   },
+
+  compatibilityDate: '2026-10-09',
 
   vite: {
     optimizeDeps: {
@@ -163,7 +169,7 @@ export default defineNuxtConfig({
 
   ogImage: {
     security: {
-      renderTimeout: 30000
+      renderTimeout: 60000
     }
   },
 
