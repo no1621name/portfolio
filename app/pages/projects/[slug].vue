@@ -45,7 +45,7 @@ if (!project.value) {
 
 const metadata = {
   title: project.value?.name,
-  description: project.value?.description || config.defaultInfo.project
+  description: project.value?.description || config.defaultInfo.projectDescription
 };
 
 useSeoMeta(metadata);
@@ -70,12 +70,13 @@ else {
         {{ project.name }}
       </h1>
 
-      <img
+      <NuxtImg
         v-if="project.image"
         :src="project.image"
         :alt="project.name"
+        :placeholder="[50, 25]"
         class="w-full rounded-lg border border-divider"
-      >
+      />
 
       <div class="text-sm text-primary/80 prose prose-mono prose-invert max-w-none">
         <ContentRenderer :value="project" />
