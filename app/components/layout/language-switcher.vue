@@ -11,7 +11,9 @@ const availableLocales = computed(() => {
   <UButton
     v-for="availableLocale in availableLocales"
     :key="availableLocale.code"
-    :to="switchLocalePath(availableLocale.code)"
+    :to="{
+      path: switchLocalePath(availableLocale.code)
+    }"
     variant="ghost"
     size="sm"
     color="primary"
