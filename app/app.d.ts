@@ -5,7 +5,7 @@ declare module 'nuxt/schema' {
       name: string;
       description: string;
       locale: string;
-      project: string;
+      projectDescription: string;
     };
   }
 }
